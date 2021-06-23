@@ -1,10 +1,12 @@
 import React from "react";
+import {Container} from "react-bootstrap";
+import CategoryArea from "./componets/CategoryArea";
 
 const Client: React.FC = () => {
     return (
-        <React.Fragment>
-
-        </React.Fragment>
+        <Container fluid={true}>
+            <CategoryArea/>
+        </Container>
     );
 }
 
