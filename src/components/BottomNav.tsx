@@ -5,10 +5,12 @@ const BottomNav: React.FC = () => {
   return (
     <Navbar className="bottom-nav-bar p-3 border-bottom" expand="sm">
       <NavDropdown title="Categories" id="basic-nav-dropdown" className="bottom-nav-dropdown mr-md-4 ml-md-4 px-1">
-        <NavDropdown.Item href="#grocery">Grocery</NavDropdown.Item>
-        <NavDropdown.Item href="#pharmacy">Pharmacy</NavDropdown.Item>
-        <NavDropdown.Item href="#food">Food</NavDropdown.Item>
+        <NavDropdown.Item href="#fruits">Fruits</NavDropdown.Item>
+        <NavDropdown.Item href="#vagetables">Vegetables</NavDropdown.Item>
         <NavDropdown.Item href="#electronics">Electronics</NavDropdown.Item>
+        <NavDropdown.Item href="#furniture">Furniture</NavDropdown.Item>
+        <NavDropdown.Item href="#grocery">Grocery</NavDropdown.Item>
+        <NavDropdown.Item href="#meat">Meat</NavDropdown.Item>
       </NavDropdown>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav" className="bottom-nav-collapse">
