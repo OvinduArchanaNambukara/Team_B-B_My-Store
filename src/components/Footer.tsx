@@ -6,8 +6,8 @@ import FooterCopyrights from "./footer/FooterCopyrights";
 
 const Footer: React.FC = () => {
   return (
-      <Row className="footer">
-        <Col xs={{span: 6, offset: 3}}>
+      <Row className="footer fixed-bottom py-4">
+        <Col xs={12} >
           <FooterLinks />
           <FooterIcons />
           <FooterCopyrights />
