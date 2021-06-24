@@ -10,6 +10,10 @@
 
     div {
       padding: 0 1.5em;
+
+      a {
+        color: $footer-font-color;
+      }
     }
   }
 
@@ -22,6 +26,7 @@
       padding: 0.7em;
       border-radius: 2em;
     }
+
     .icon:hover {
       color: $footer-bg-color;
     }
