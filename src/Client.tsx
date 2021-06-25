@@ -1,13 +1,16 @@
 import React from "react";
+import {Container} from "react-bootstrap";
+import CategoryArea from "./components/CategoryArea";
 import Welcome from "./components/Welcome";
 import Footer from "./components/Footer";
         
 const Client: React.FC = () => {
     return (
-        <React.Fragment>
+        <Container fluid={true}>
             <Welcome/>
+            <CategoryArea/>
             <Footer />
-        </React.Fragment>
+        </Container>
     );
 }
 
