@@ -1,10 +1,4 @@
 @import "~bootstrap/scss/bootstrap";
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-}
-
-
+@import "partials/layout";
+@import "partials/category-area";
 @import "partials/welcome";
