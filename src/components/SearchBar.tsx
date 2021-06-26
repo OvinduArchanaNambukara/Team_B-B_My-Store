@@ -1,12 +1,52 @@
-import React from "react";
+import React, {useState} from "react";
 import {Col, Row} from "react-bootstrap";
-import Select from "react-select/base";
+import {components} from "react-select";
+import AsyncSelect from "react-select/async";
+import {optionTypes} from "../types/types";
+import {BsSearch} from "react-icons/bs"
+import {customStyles} from "../custom-styles/custom-selector-styles";
+
+const list = [
+    {
+        label: 'hello',
+        value: 'kekek'
+    },
+    {
+        label: 'Hisks',
+        value: 'asasa'
+    },
+    {
+        label: 'helasaslo',
+        value: 'saassd'
+    },
+]
 
 const SearchBar: React.FC = () => {
+    const [selectOptions, setSelectOptions] = useState<optionTypes[]>(list);
+
+
+    const DropdownIndicator = (props: any) => {
+        return (
+            <components.DropdownIndicator {...props}>
+                <BsSearch/>
+            </components.DropdownIndicator>
+        );
+    };
+
+    const loadOptions = async (inputValue: string) => {
+        return selectOptions
+    }
+
     return (
-        <Row>
-            <Col xs={12}>
-                <Select
+        <Row className='justify-content-center mt-5'>
+            <Col xs={4}>
+                <AsyncSelect
+                    cacheOptions={true}
+                    placeholder='Search...'
+                    isMulti={true}
+                    loadOptions={loadOptions}
+                    components={{DropdownIndicator}}
+                    styles={customStyles}
                 />
             </Col>
         </Row>

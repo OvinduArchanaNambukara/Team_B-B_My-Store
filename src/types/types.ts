@@ -9,3 +9,9 @@ export interface categoryTypes {
     image: string
     name: string
 }
+
+export interface optionTypes {
+    label: string
+    value: string
+}
+
