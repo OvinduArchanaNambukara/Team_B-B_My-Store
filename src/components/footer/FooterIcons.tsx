@@ -3,7 +3,7 @@ import {Row} from "react-bootstrap";
 import FooterIcon from "./FooterIcon";
 import {faFacebookF, faLinkedinIn, faPinterestP, faTwitter, faYoutube} from "@fortawesome/free-brands-svg-icons";
 import {faRss} from "@fortawesome/free-solid-svg-icons";
-import {ISocialLink} from "../../types/Types";
+import {ISocialLink} from "../../types/types";
 
 const icons: ISocialLink[] = [
   {icon: faFacebookF, path: "#facebook"},
