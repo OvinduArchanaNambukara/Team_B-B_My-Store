@@ -13,7 +13,7 @@ const MainPage:React.FC = () => {
             </Row>
             <Container className='products flex-fill justify-content-around mt-2 mb-5'>
                 <Row>
-                    <Col xs={12}>
+                    <Col xs={12} className='px-0'>
                         <Products />
                     </Col>
                 </Row>
