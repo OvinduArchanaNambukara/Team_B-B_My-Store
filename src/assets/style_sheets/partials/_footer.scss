@@ -1,0 +1,52 @@
+@import "variables";
+
+.footer {
+  background-color: $footer-bg-color;
+  color: $footer-font-color;
+  font-weight: 500;
+
+  .footer-links {
+    text-align: center;
+
+    div {
+      padding: 0 1.5em;
+
+      a {
+        color: $footer-font-color;
+      }
+    }
+  }
+
+  .icons {
+    .icon {
+      background-color: $footer-icon-color;
+      color: #fff;
+      height: 3em;
+      width: 3em;
+      padding: 0.7em;
+      border-radius: 2em;
+    }
+
+    .icon:hover {
+      color: $footer-bg-color;
+    }
+  }
+
+  .copyrights {
+    .powered {
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .footer {
+    .icons {
+      .icon {
+        height: 2.6em;
+        width: 2.6em;
+        padding: 0.5em;
+      }
+    }
+  }
+}
