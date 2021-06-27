@@ -1,7 +1,7 @@
 import React from "react";
 import {Col, Row} from "react-bootstrap";
-import Header from "./category/Header";
-import Categories from "./category/Categories";
+import Header from "./Header";
+import Categories from "./Categories";
 
 const CategoryArea: React.FC = () => {
 

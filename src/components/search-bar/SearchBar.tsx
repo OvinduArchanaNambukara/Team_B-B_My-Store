@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import {Col, Row} from "react-bootstrap";
 import {components} from "react-select";
 import AsyncSelect from "react-select/async";
-import {optionTypes} from "../types/types";
+import {optionTypes} from "../../types/types";
 import {BsSearch} from "react-icons/bs"
-import {customStyles} from "../custom-styles/custom-selector-styles";
+import {customStyles} from "../../custom-styles/custom-selector-styles";
 
 const list = [
     {
