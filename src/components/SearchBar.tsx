@@ -24,7 +24,6 @@ const list = [
 const SearchBar: React.FC = () => {
     const [selectOptions, setSelectOptions] = useState<optionTypes[]>(list);
 
-
     const DropdownIndicator = (props: any) => {
         return (
             <components.DropdownIndicator {...props}>
@@ -38,8 +37,8 @@ const SearchBar: React.FC = () => {
     }
 
     return (
-        <Row className='justify-content-center mt-5'>
-            <Col xs={4}>
+        <Row className='justify-content-center mt-md-5 mt-3 search-bar'>
+            <Col xs={12} md={8} lg={6} xl={4}>
                 <AsyncSelect
                     cacheOptions={true}
                     placeholder='Search...'
