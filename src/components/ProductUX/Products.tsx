@@ -8,6 +8,7 @@ import OnionImg from '../../assets/images/groceryImages/onion.jpg';
 import PotatoImg from '../../assets/images/groceryImages/potato.jpg';
 import {IProducts} from "../../types/types";
 import ProductCategoryArea from "./ProductCategoryArea";
+import {Col, Container, Row} from "react-bootstrap";
 
 const ShopProducts: IProducts[] = [
     {
@@ -26,11 +27,15 @@ const ShopProducts: IProducts[] = [
 
 const Products: React.FC = () => {
     return (
-        <div>
-            {ShopProducts.map((shopProducts: IProducts, index: number) =>
-                <ProductCategoryArea products={shopProducts} key={index}/>
-            )}
-        </div>)
+        <Container className='products flex-fill justify-content-around mt-2 mb-5'>
+            <Row>
+                <Col xs={12} className='px-0'>
+                    {ShopProducts.map((shopProducts: IProducts, index: number) =>
+                        <ProductCategoryArea products={shopProducts} key={index}/>
+                    )}
+                </Col>
+            </Row>
+        </Container>)
 
 }
 

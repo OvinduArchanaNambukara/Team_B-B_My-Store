@@ -1,10 +1,10 @@
 import React from "react";
-import MainPage from "./components/MainPage";
+import Products from "./components/ProductUX/Products";
 
 const Client: React.FC = () => {
     return (
         <React.Fragment>
-            <MainPage />
+            <Products />
         </React.Fragment>
     );
 }
