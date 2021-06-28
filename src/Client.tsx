@@ -6,10 +6,12 @@ import SearchBar from "./components/search-bar/SearchBar";
 import Footer from "./components/footer/Footer";
 import Products from "./components/productUX/Products";
 import BottomNav from "./components/bottom-nav/BottomNav";
+import TopNavBar from "./components/top-nav-bar/TopNavBar";
 
 const Client: React.FC = () => {
     return (
         <Container fluid={true}>
+            <TopNavBar/>
             <BottomNav/>
             <Welcome/>
             <SearchBar/>
