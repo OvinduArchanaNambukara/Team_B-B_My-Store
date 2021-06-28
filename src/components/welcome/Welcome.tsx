@@ -1,5 +1,5 @@
 import React from "react";
-import BannerImage from "../../assets/images/welcome_banner.webp";
+import BannerImage from "../../assets/images/welcomeImage/welcome_banner.webp";
 import {Button, Col, Image, Row} from "react-bootstrap";
 
 const Welcome: React.FC = () => {
