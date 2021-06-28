@@ -12,7 +12,7 @@ const Client: React.FC = () => {
             <Welcome/>
             <SearchBar/>
             <CategoryArea/>
-            <Products />
+            <Products/>
             <Footer/>
         </Container>
     );
