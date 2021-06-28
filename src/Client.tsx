@@ -1,11 +1,22 @@
 import React from "react";
+import {Container} from "react-bootstrap";
+import CategoryArea from "./components/category-area/CategoryArea";
+import Welcome from "./components/welcome/Welcome";
+import SearchBar from "./components/search-bar/SearchBar";
+import Footer from "./components/footer/Footer";
+import Products from "./components/ProductUX/Products";
 import BottomNav from "./components/BottomNav";
 
 const Client: React.FC = () => {
     return (
-        <React.Fragment>
-            <BottomNav />
-        </React.Fragment>
+        <Container fluid={true}>
+            <BottomNav/>
+            <Welcome/>
+            <SearchBar/>
+            <CategoryArea/>
+            <Products/>
+            <Footer/>
+        </Container>
     );
 }
 
