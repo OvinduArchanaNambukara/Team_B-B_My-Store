@@ -10,10 +10,10 @@
 
   .product {
     border-radius: .4em;
-    border: 2px solid #C0C0C0;
+    border: 2px solid $product-border-color;
 
     img {
-      height: 130px;
+      height: 10em;
     }
 
     h3 {
@@ -22,13 +22,13 @@
 
     .currentPrice {
       font-size: 1.5em;
-      color: #45AB49;
+      color: $current-price-color;
       font-weight: 600;
     }
 
     .oldPrice {
       font-size: 1.1em;
-      color: #C0C0C0;
+      color: $product-border-color;
       font-weight: 500;
 
       p {
@@ -44,6 +44,14 @@
   }
 }
 
+
+@media (max-width: 320px) {
+  .addToCartBtn {
+    font-size: .85em;
+    height: 40px;
+  }
+}
+
 @media (max-width: $layout-breakpoint-xs) {
   .products {
 
@@ -51,6 +59,10 @@
 
       h3 {
         font-size: 1.3em;
+      }
+
+      img {
+        height: 5em;
       }
 
       .currentPrice {
@@ -64,7 +76,7 @@
   }
 }
 
-@media (min-width: $layout-breakpoint-md) and (max-width: $layout-breakpoint-lg) {
+@media (min-width: $layout-breakpoint-md) and (max-width: $layout-breakpoint-lg + 33px) {
   .products {
 
     .product {
