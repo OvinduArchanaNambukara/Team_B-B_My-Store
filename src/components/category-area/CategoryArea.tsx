@@ -6,11 +6,11 @@ import Categories from "./Categories";
 const CategoryArea: React.FC = () => {
 
     return (
-        <Row className='categories mt-4'>
-            <Col xs={12} className='header'>
+        <Row className='categories mt-4 justify-content-center'>
+            <Col xs={12} xl={10} className='header'>
                 <Header/>
             </Col>
-            <Col xs={12}>
+            <Col xs={12} xl={10}>
                 <Categories/>
             </Col>
         </Row>

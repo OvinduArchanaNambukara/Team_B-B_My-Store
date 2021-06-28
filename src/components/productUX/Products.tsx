@@ -27,15 +27,14 @@ const ShopProducts: IProducts[] = [
 
 const Products: React.FC = () => {
     return (
-        <Container className='products flex-fill justify-content-around mt-2 mb-5'>
-            <Row>
-                <Col xs={12} className='px-0'>
-                    {ShopProducts.map((shopProducts: IProducts, index: number) =>
-                        <ProductCategoryArea products={shopProducts} key={index}/>
-                    )}
-                </Col>
-            </Row>
-        </Container>)
+        <Row className='products justify-content-center'>
+            <Col xl={8} xs={12} className='mr-0'>
+                {ShopProducts.map((shopProducts: IProducts, index: number) =>
+                    <ProductCategoryArea products={shopProducts} key={index}/>
+                )}
+            </Col>
+        </Row>
+    )
 
 }
 

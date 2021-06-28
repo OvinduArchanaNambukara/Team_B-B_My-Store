@@ -38,7 +38,7 @@ const SearchBar: React.FC = () => {
 
     return (
         <Row className='justify-content-center mt-md-5 mt-3 search-bar'>
-            <Col xs={12} md={8} lg={6} xl={6}>
+            <Col xs={12} md={8} lg={6} xl={5}>
                 <AsyncSelect
                     cacheOptions={true}
                     placeholder='Search...'

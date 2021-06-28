@@ -4,7 +4,7 @@ import CategoryArea from "./components/category-area/CategoryArea";
 import Welcome from "./components/welcome/Welcome";
 import SearchBar from "./components/search-bar/SearchBar";
 import Footer from "./components/footer/Footer";
-import Products from "./components/ProductUX/Products";
+import Products from "./components/productUX/Products";
 import BottomNav from "./components/bottom-nav/BottomNav";
 
 const Client: React.FC = () => {
