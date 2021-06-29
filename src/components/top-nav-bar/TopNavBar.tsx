@@ -4,7 +4,7 @@ import HeaderArea from "./HeaderArea";
 
 const TopNavBar: React.FC = () => {
     return (
-        <Row>
+        <Row className='header-nav'>
             <Col xs={12} className='px-0'>
                 <HeaderArea/>
             </Col>
