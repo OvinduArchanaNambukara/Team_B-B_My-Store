@@ -56,16 +56,9 @@
 
       span {
         color: white;
+        font-size: 0.9em;
         font-weight: 500;
       }
-    }
-  }
-}
-
-@media (max-width: $layout-breakpoint-xs) {
-  .top-nav-bar {
-    .logo-area {
-      font-size: .8em;
     }
   }
 }
