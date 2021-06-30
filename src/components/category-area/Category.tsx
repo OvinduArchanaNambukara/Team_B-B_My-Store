@@ -8,9 +8,11 @@ type CategoryProps = {
 
 const Category: React.FC<CategoryProps> = (props) => {
     return (
-        <Col className='category text-center p-0 mx-2 mt-2 mx-md-1' xs={3} md={2}>
-            <Image src={props.image} alt={props.name} fluid={true}/>
-            <p className='m-1'>{props.name}</p>
+        <Col className='category text-center mt-2 px-1' xs={4} md={2}>
+            <div>
+                <Image src={props.image} alt={props.name} fluid={true}/>
+                <p className='m-1'>{props.name}</p>
+            </div>
         </Col>
     );
 }
