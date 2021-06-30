@@ -9,7 +9,7 @@ const Welcome: React.FC = () => {
         <Image src={BannerImage} fluid={true} className="image"/>
       </Col>
 
-      <Col xs={{span: 7, offset: 5}} md={{span: 6, offset: 6}} className="banner-text d-none d-md-block">
+      <Col xs={{span: 7, offset: 5}} md={{span: 6, offset: 6}} className="banner-text">
         <span className="regular">100% Healthy & Affordable</span><br/>
         <span className="organic">Organic Vegetables</span><br/>
         <span className="regular">Small Changes Big Difference</span><br/>

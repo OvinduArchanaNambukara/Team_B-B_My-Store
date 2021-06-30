@@ -2,10 +2,10 @@
 
 .welcome {
   font-size: 1em;
-  align-content: center;
-  vertical-align: middle;
+  position: relative;
 
   .banner-text {
+    top: 30%;
     position: absolute;
     z-index: 10;
 
@@ -34,8 +34,14 @@
   }
 }
 
-@media (max-width: 736px) {
+@media (min-width: $layout-breakpoint-xs) and (max-width: $layout-breakpoint-md) {
   .welcome {
     font-size: .45em;
+  }
+}
+
+@media (max-width: $layout-breakpoint-xs) {
+  .welcome {
+    font-size: .3em;
   }
 }
