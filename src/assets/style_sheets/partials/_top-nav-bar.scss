@@ -5,7 +5,7 @@
 
   .header-nav {
     font-size: 1em;
-    border-bottom: 1px solid #424242;
+    border-bottom: 1px solid $header-nav-bottom-color;
 
     svg {
       font-size: 2em;
@@ -15,8 +15,8 @@
 
     button {
       background-color: transparent;
-      color: #0abd48;
-      border-color: #0abd48;
+      color: $logo-color;
+      border-color: $logo-color;
     }
 
     .navbar-toggler {
@@ -31,23 +31,23 @@
     p {
       font-size: 3em;
       font-weight: 600;
-      color: #00c04e;
+      color: $logo-color;
     }
 
     svg {
       font-size: 3em;
-      color: #00c04e;
+      color: $logo-color;
     }
 
     button {
-      background-color: #00c04e;
+      background-color: $logo-color;
       font-size: 1em;
       font-weight: 500;
     }
 
     .count {
       border-radius: 20px;
-      background-color: #00c04e;
+      background-color: $logo-color;
       width: 20px;
       height: 20px;
       position: absolute;
