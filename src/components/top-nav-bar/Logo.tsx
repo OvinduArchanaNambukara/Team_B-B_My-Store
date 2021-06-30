@@ -1,8 +1,11 @@
 import React from "react";
+import {Col} from "react-bootstrap";
 
 const Logo: React.FC = () => {
     return (
-        <p className='m-0 pl-5'>LOGO</p>
+        <Col className='my-auto' xs={4}>
+            <p className='m-0'>LOGO</p>
+        </Col>
     );
 }
 

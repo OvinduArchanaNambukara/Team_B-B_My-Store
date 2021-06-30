@@ -1,13 +1,16 @@
 import React from "react";
-import {GiShoppingCart} from "react-icons/all"
-import {Button, Col, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
+import CartIcon from "./CartIcon";
+import CheckOutButton from "./CheckOutButton";
 
 const CheckOutArea: React.FC = () => {
     return (
-            <React.Fragment>
-                <GiShoppingCart/>
-                <Button className='mr-5 ml-4'>Check Out</Button>
-            </React.Fragment>
+        <Col className='my-auto' xs={8}>
+            <Row className='align-items-center justify-content-end'>
+                <CartIcon/>
+                <CheckOutButton/>
+            </Row>
+        </Col>
     );
 }
 
