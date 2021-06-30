@@ -1,0 +1,65 @@
+@import "variables";
+
+.top-nav-bar {
+  font-size: 1em;
+
+  .header-nav {
+    font-size: 1em;
+    border-bottom: 1px solid #424242;
+
+    svg {
+      font-size: 2em;
+      color: black;
+      margin-right: 5px;
+    }
+
+    button {
+      background-color: transparent;
+      color: #0abd48;
+      border-color: #0abd48;
+    }
+
+    .navbar-toggler {
+      border: 1px solid $bottom-nav-dropdown-border;
+      padding: 0 .3em;
+    }
+  }
+
+  .logo-area {
+    font-size: 1em;
+
+    p {
+      font-size: 3em;
+      font-weight: 600;
+      color: #00c04e;
+    }
+
+    svg {
+      font-size: 3em;
+      color: #00c04e;
+    }
+
+    button {
+      background-color: #00c04e;
+      font-size: 1em;
+      font-weight: 500;
+    }
+
+    .count {
+      border-radius: 20px;
+      background-color: #00c04e;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      span {
+        color: white;
+        font-size: 0.9em;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
