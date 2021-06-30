@@ -8,7 +8,7 @@ import OnionImg from '../../assets/images/groceryImages/onion.jpg';
 import PotatoImg from '../../assets/images/groceryImages/potato.jpg';
 import {IProducts} from "../../types/types";
 import ProductCategoryArea from "./ProductCategoryArea";
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 
 const ShopProducts: IProducts[] = [
     {
