@@ -12,11 +12,10 @@ type ProductProps = {
 }
 
 const Product: React.FC<ProductProps> = (props) => {
-
     const {name, image, oldPrice, currentPrice} = props.productDetails;
 
     return (
-        <Col md={4} lg={3} xs={6} className='px-md-3 mb-3 px-1'>
+        <Col md={4} lg={3} xs={6} className='px-md-2 mb-3 px-1'>
             <div className='product px-3 py-4'>
                 <Row className='justify-content-center'>
                     <Col xs="auto">

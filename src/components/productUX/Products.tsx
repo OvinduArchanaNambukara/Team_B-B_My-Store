@@ -28,7 +28,7 @@ const ShopProducts: IProducts[] = [
 const Products: React.FC = () => {
     return (
         <Row className='products justify-content-center'>
-            <Col xl={8} xs={12} className='mr-0'>
+            <Col xs={12}>
                 {ShopProducts.map((shopProducts: IProducts, index: number) =>
                     <ProductCategoryArea products={shopProducts} key={index}/>
                 )}
