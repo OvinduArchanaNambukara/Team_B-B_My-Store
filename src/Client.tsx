@@ -16,10 +16,15 @@ const Client: React.FC = () => {
                 <BottomNav/>
                 <Welcome/>
                 <SearchBar/>
+            </Container>
+            <Container>
                 <CategoryArea/>
                 <Products/>
+            </Container>
+            <Container fluid={true}>
                 <Footer/>
             </Container>
+
 
         </React.Fragment>
 

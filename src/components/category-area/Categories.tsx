@@ -21,7 +21,7 @@ const temp: categoryTypes[] = [
 const Categories: React.FC = () => {
 
     return (
-        <Col className='px-0 text-center' lg={{offset: 1, span: 10}}>
+        <Col className='px-1 px-sm-0 text-center' xs={12}>
             <Row className='justify-content-center'>
                 {
                     temp.map((category: categoryTypes, index: number) => {
