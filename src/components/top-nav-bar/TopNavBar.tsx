@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Row} from "react-bootstrap";
+import {Row} from "react-bootstrap";
 import HeaderArea from "./HeaderArea";
 import LogoArea from "./LogoArea";
 
