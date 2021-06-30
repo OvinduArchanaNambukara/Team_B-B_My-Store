@@ -3,7 +3,7 @@ import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 
 const BottomNav: React.FC = () => {
   return (
-    <Navbar className="bottom-nav-bar p-3 border-bottom" expand="sm">
+    <Navbar className="bottom-nav-bar px-0 py-3 border-bottom" expand="sm">
       <NavDropdown title="Categories" id="basic-nav-dropdown" className="bottom-nav-dropdown mr-md-4 ml-md-4 px-1">
         <NavDropdown.Item href="#fruits">Fruits</NavDropdown.Item>
         <NavDropdown.Item href="#vagetables">Vegetables</NavDropdown.Item>
