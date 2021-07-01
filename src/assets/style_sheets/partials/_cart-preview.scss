@@ -1,19 +1,27 @@
 .dropdown-menu {
   border-radius: .6em;
 
-  .dropdown-item {
+  .cart-preview-container {
+
     .cart-preview {
-      font-size: 1em;
+      font-size: .8em;
 
+
+      .item-table {
+        overflow-y: scroll;
+      }
+
+      .cart-details {
+        min-width: 300px;
+      }
+
+      //empty-cart-preview
       .empty-cart {
-        font-size: .8em;
-
         .empty-cart-image {
           width: 10em;
         }
       }
+
     }
-
   }
-
 }

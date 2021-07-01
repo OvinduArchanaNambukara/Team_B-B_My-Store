@@ -1,11 +1,15 @@
 import React from "react";
 import {Row} from "react-bootstrap";
-import EmptyCartPreview from "./EmptyCartPreview";
+import CartPreviewDetails from "./CartPreviewDetails";
 
 const CartPreview: React.FC = () => {
     return (
-        <Row className="cart-preview">
-            <EmptyCartPreview/>
+        <Row className="cart-preview m-0 p-0">
+            {/*<EmptyCartPreview/>*/}
+            <Row className="cart-items">
+
+            </Row>
+            <CartPreviewDetails/>
         </Row>
     );
 }
