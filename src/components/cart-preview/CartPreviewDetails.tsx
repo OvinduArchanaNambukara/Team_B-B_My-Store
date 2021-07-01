@@ -4,7 +4,7 @@ import Divider from "./Divider";
 
 const CartPreviewDetails: React.FC = () => {
     return (
-        <Row className="cart-details">
+        <Row className="cart-details pt-3">
             <Col xs={6}><label>Sub Total (4 items)</label></Col>
             <Col xs={6} className="text-danger text-right"><label>Rs. 3000.00</label></Col>
 
