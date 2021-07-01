@@ -24,10 +24,7 @@ const Client: React.FC = () => {
             <Container fluid={true}>
                 <Footer/>
             </Container>
-
-
         </React.Fragment>
-
     );
 }
 
