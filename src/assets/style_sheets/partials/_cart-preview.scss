@@ -1,0 +1,19 @@
+.dropdown-menu {
+  border-radius: .6em;
+
+  .dropdown-item {
+    .cart-preview {
+      font-size: 1em;
+
+      .empty-cart {
+        font-size: .8em;
+
+        .empty-cart-image {
+          width: 10em;
+        }
+      }
+    }
+
+  }
+
+}
