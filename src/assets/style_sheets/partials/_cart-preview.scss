@@ -1,3 +1,5 @@
+@import "variables";
+
 .dropdown-menu {
   border-radius: .6em;
 
@@ -9,6 +11,19 @@
 
       .item-table {
         overflow-y: scroll;
+        max-height: 20em;
+
+        .cart-item {
+          .cart-item-image {
+            max-height: 5em;
+          }
+          .cart-item-qty {
+            color: $item-qty-color;
+          }
+          .cart-item-subtotal {
+            color: $item-subtotal-color;
+          }
+        }
       }
 
       .cart-details {
