@@ -1,5 +1,5 @@
 import React from "react";
-import {Col, Container, Dropdown, Row} from "react-bootstrap";
+import {Col, Dropdown, Row} from "react-bootstrap";
 import CartIcon from "./CartIcon";
 import CheckOutButton from "./CheckOutButton";
 import CartPreview from "../cart-preview/CartPreview";
@@ -11,9 +11,7 @@ const CheckOutArea: React.FC = () => {
                 <Dropdown>
                     <Dropdown.Toggle><CartIcon/></Dropdown.Toggle>
                     <Dropdown.Menu align="right" >
-                        <Container className="cart-preview-container">
-                            <CartPreview/>
-                        </Container>
+                        <CartPreview/>
                     </Dropdown.Menu>
                 </Dropdown>
                 <CheckOutButton/>

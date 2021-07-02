@@ -30,6 +30,6 @@ export const ShopProducts: IProducts[] = [
 export const CartItems: ICartItem[] = [];
 
 ProductList.forEach((prod: IProduct) => {
-    CartItems.push({product: prod, quantity: Math.floor(Math.random() * 20)});
+    CartItems.push({product: prod, quantity: Math.floor(Math.random() * 20) + 1 });
 })
 
