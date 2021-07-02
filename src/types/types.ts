@@ -26,3 +26,8 @@ export interface IProduct {
     currentPrice: number
     oldPrice: number | null
 }
+
+export interface ICartItem {
+    product: IProduct
+    quantity: number
+}
