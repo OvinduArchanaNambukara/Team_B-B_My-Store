@@ -19,7 +19,7 @@ const Product: React.FC<ProductProps> = (props) => {
             <div className='product px-3 py-4'>
                 <Row className='justify-content-center'>
                     <Col xs="auto">
-                        <Image src={image} placeholder="carrot" fluid={true}/>
+                        <Image src={image} placeholder="carrot" loading='lazy' fluid={true}/>
                     </Col>
                 </Row>
                 <Name name={name}/>
