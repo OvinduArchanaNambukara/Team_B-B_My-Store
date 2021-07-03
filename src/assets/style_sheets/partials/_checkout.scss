@@ -1,0 +1,76 @@
+@import "variables";
+
+
+.checkOut {
+  font-size: 1em;
+
+  .checkOut-label {
+
+  }
+
+  .continueShoppingBtn {
+    border-radius: 2em;
+    width: 100%;
+  }
+
+  .shopping-cart-text {
+    h5 {
+      font-size: 1.2em;
+    }
+  }
+
+  .table {
+
+    .tr-image {
+      img {
+        width: 90px;
+        height: 80px;
+      }
+
+    }
+
+    .quantity-editor {
+      label {
+        font-size: 1.1em;
+      }
+
+      svg {
+        color: $checkout-quantity-svg-color;
+
+      }
+    }
+  }
+  svg{
+    cursor: pointer;
+  }
+
+}
+
+@media (max-width: $layout-breakpoint-xs) {
+  .checkOut {
+    font-size: .8em;
+
+    .table {
+      .tr-image {
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $layout-breakpoint-lg + 35px) and (min-width: $layout-breakpoint-xs) {
+  .checkOut {
+
+    .table {
+      .tr-image {
+        img {
+          width: 90px;
+          height: 70px;
+        }
+      }
+    }
+  }
+}
