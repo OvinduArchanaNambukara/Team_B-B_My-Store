@@ -2,7 +2,7 @@
 
 .bottom-nav-bar {
   font-weight: 500;
-  font-size: 1em;
+  font-size: .9em;
 
   .bottom-nav-dropdown {
     border: 1px solid $bottom-nav-dropdown-border;
@@ -15,7 +15,12 @@
 
     .dropdown-menu {
       margin-top: 0.3em !important;
-      padding-left: .2em;
+      font-size: .85em;
+
+      .dropdown-item {
+        padding-left: 2em;
+      }
+
     }
   }
 
