@@ -1,6 +1,6 @@
 import React from "react";
 import {FiShoppingCart} from "react-icons/all";
-import {Badge} from "react-bootstrap";
+import {Col, Badge} from "react-bootstrap";
 
 type CartIconProps = {
     handleClick: (event: any) => void
@@ -12,10 +12,10 @@ const CartIcon: React.FC<CartIconProps> = (props) => {
 
     return (
         <React.Fragment>
-            <span>
-                <Badge pill className="count-badge">{itemCount}</Badge>
-                <FiShoppingCart size={30} onClick={handleClick} className="cart-icon mr-3"/>
-            </span>
+            <Col className="cart-icon p-0 mr-3">
+                <Badge className="count-badge mr-3">{itemCount}</Badge>
+                <FiShoppingCart size={35} onClick={handleClick} className="icon mt-2 mr-2"/>
+            </Col>
 
         </React.Fragment>
     );

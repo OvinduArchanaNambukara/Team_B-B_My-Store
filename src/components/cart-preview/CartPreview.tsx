@@ -4,7 +4,7 @@ import CartPreviewDetails from "./CartPreviewDetails";
 import CartItem from "./CartItem";
 import {CartItems} from "../../constants/constants";
 import EmptyCartPreview from "./EmptyCartPreview";
-import CheckOutButton from "../top-nav-bar/CheckOutButton";
+import CheckOutButton from "../common/CheckOutButton";
 import CartIcon from "./CartIcon";
 
 const CartPreview: React.FC = () => {
