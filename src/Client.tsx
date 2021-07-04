@@ -17,7 +17,7 @@ const Client: React.FC = () => {
                 <Welcome/>
                 <SearchBar/>
             </Container>
-            <Container>
+            <Container id="shop">
                 <CategoryArea/>
                 <Products/>
             </Container>
