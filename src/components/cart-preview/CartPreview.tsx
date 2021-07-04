@@ -45,7 +45,7 @@ const CartPreview: React.FC = () => {
                                 }
                             </Col>
                             <Col xs={12} className="pr-4">
-                                <CartPreviewDetails subTotal={subTotal}/>
+                                <CartPreviewDetails subTotal={subTotal} count={CartItems.length}/>
                             </Col>
                             <Col xs={12}>
                                 <CheckOutButton
