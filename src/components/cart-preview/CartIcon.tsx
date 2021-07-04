@@ -1,6 +1,6 @@
 import React from "react";
 import {FiShoppingCart} from "react-icons/all";
-import {Col, Badge} from "react-bootstrap";
+import {Badge, Col} from "react-bootstrap";
 
 type CartIconProps = {
     handleClick: (event: any) => void

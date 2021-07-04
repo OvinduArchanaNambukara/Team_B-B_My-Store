@@ -5,15 +5,16 @@ import Divider from "./Divider";
 
 type CartPreviewDetailProps = {
     subTotal: number
+    count: number
 }
 
 const CartPreviewDetails: React.FC<CartPreviewDetailProps> = (props) => {
-    const {subTotal} = props;
+    const {subTotal, count} = props;
     const discount = Math.floor(Math.random() * subTotal * 0.3);
 
     return (
         <Row className="cart-details pt-3">
-            <Col xs={6}><label>Sub Total (4 items)</label></Col>
+            <Col xs={6}><label>Sub Total ({count} items)</label></Col>
             <Col xs={6} className="text-danger text-right font-weight-bold">
                 <label>
                     <NumberFormat value={subTotal}
