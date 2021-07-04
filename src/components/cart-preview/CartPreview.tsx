@@ -11,6 +11,7 @@ const CartPreview: React.FC = () => {
     const [show, setShow] = useState(false);
     const [target, setTarget] = useState(null);
     const ref = useRef(null);
+    let subTotal = 0;
 
     const handleClick = (event: any) => {
         setShow(!show);
@@ -33,6 +34,7 @@ const CartPreview: React.FC = () => {
                             {!CartItems && <EmptyCartPreview/>}
                             <Col xs={12} className="item-table">
                                 {CartItems.map((item, index) => {
+                                    subTotal += item.quantity * item.product.currentPrice;
                                     return (
                                         <CartItem
                                             key={index}
@@ -43,7 +45,7 @@ const CartPreview: React.FC = () => {
                                 }
                             </Col>
                             <Col xs={12} className="pr-4">
-                                <CartPreviewDetails/>
+                                <CartPreviewDetails subTotal={subTotal}/>
                             </Col>
                             <Col xs={12}>
                                 <CheckOutButton

@@ -1,8 +1,6 @@
 @import "variables";
 
 .cart-icon {
-  //position: relative;
-
   .count-badge {
     position: absolute;
     z-index: 10;
@@ -13,6 +11,7 @@
     right: 0;
     box-shadow: 0 1px 1px 1px $badge-shadow-color;
   }
+
   .icon {
     cursor: pointer;
   }
