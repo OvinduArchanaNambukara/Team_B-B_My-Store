@@ -28,32 +28,33 @@ const CartPreview: React.FC = () => {
                 container={ref.current}
                 rootClose={true}
             >
-                <Popover id="popover-contained" className="mt-3 py-2">
-                    <Container className="cart-preview-container px-2">
-                        <Row className="cart-preview m-0 p-0">
-                            {!CartItems && <EmptyCartPreview/>}
-                            <Col xs={12} className="item-table">
-                                {CartItems.map((item, index) => {
-                                    subTotal += item.quantity * item.product.currentPrice;
-                                    return (
-                                        <CartItem
-                                            key={index}
-                                            product={item.product}
-                                            quantity={item.quantity}/>
-                                    );
-                                })
-                                }
-                            </Col>
-                            <Col xs={12} className="pr-4">
-                                <CartPreviewDetails subTotal={subTotal} count={CartItems.length}/>
-                            </Col>
-                            <Col xs={12}>
-                                <CheckOutButton
-                                    classname={"cart-checkout-btn px-5 py-1 mb-2 d-block d-sm-none float-right"}/>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Popover>
+                {CartItems.length === 0 ? <EmptyCartPreview/> :
+                    <Popover id="popover-contained" className="cart-preview-popover mt-2 mt-md-3 py-2">
+                        <Container className="cart-preview-container px-2">
+                            <Row className="cart-preview m-0 p-0">
+                                <Col xs={12} className="item-table">
+                                    {CartItems.map((item, index) => {
+                                        subTotal += item.quantity * item.product.currentPrice;
+                                        return (
+                                            <CartItem
+                                                key={index}
+                                                product={item.product}
+                                                quantity={item.quantity}/>
+                                        );
+                                    })
+                                    }
+                                </Col>
+                                <Col xs={12} className="pr-4">
+                                    <CartPreviewDetails subTotal={subTotal} count={CartItems.length}/>
+                                </Col>
+                                <Col xs={12}>
+                                    <CheckOutButton
+                                        classname={"cart-checkout-btn px-5 py-1 mb-2 d-block d-sm-none float-right"}/>
+                                </Col>
+
+                            </Row>
+                        </Container>
+                    </Popover>}
             </Overlay>
         </div>
     );
