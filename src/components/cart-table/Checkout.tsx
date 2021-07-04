@@ -1,41 +1,68 @@
 import React from 'react';
 import {Card, Col, Container, Row, Table} from "react-bootstrap";
-import CabbageImg from '../../assets/images/groceryImages/cabbage.jpg';
 import CarrotImg from '../../assets/images/groceryImages/carrot.jpg';
-import {ICheckoutProduct} from "../../types/types";
 import CheckoutHeader from "./CheckoutHeader";
 import ContinueShoppingBtn from "./ContinueShoppingBtn";
 import CartHeader from "./CartHeader";
-import TableRow from "./TableRow";
-
-
-const demoProducts: ICheckoutProduct[] = [
-    {
-        quantity: 5, product: {
-            name: "Carrot", image: CarrotImg, currentPrice: 650, oldPrice: 670
-        }
-    },
-    {
-        quantity: 7, product: {
-            name: "Cabbage", image: CabbageImg, currentPrice: 340, oldPrice: 400
-        }
-    }
-]
+import BootstrapTable from "react-bootstrap-table-next";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import {MinusCircle, PlusCircle, Trash} from "react-feather";
 
 const Checkout: React.FC = () => {
 
-    const renderCheckedProducts =
-        demoProducts.map((checkedProduct: ICheckoutProduct, index) => {
-            return (
-                <TableRow
-                    key={index}
-                    rowNumber={index}
-                    image={checkedProduct.product.image}
-                    name={checkedProduct.product.name}
-                    price={checkedProduct.product.currentPrice}
-                    quantity={checkedProduct.quantity}/>
-            )
-        })
+    const products = [
+        {
+            id: 1, item: <img className='tr-image' src={CarrotImg}/>, name: "Carrot", qty: <Row>
+                <Col className='quantity-editor' xs={12}>
+                    <MinusCircle size={18}/>
+                    <label className='px-2'>10</label>
+                    <PlusCircle size={18}/>
+                </Col>
+            </Row>, unitPrice: "Rs.270.00", amount: "Rs.2700.00", deleteIcon: <Trash size={18}/>
+        },
+        {
+            id: 1, item: <img className='tr-image' src={CarrotImg}/>, name: "Carrot", qty: <Row>
+                <Col className='quantity-editor' xs={12}>
+                    <MinusCircle size={18}/>
+                    <label className='px-2'>10</label>
+                    <PlusCircle size={18}/>
+                </Col>
+            </Row>, unitPrice: "Rs.270.00", amount: "Rs.2700.00", deleteIcon: <Trash size={18}/>
+        },
+        {
+            id: 1, item: <img className='tr-image' src={CarrotImg}/>, name: "Carrot", qty: <Row>
+                <Col className='quantity-editor' xs={12}>
+                    <MinusCircle size={18}/>
+                    <label className='px-2'>10</label>
+                    <PlusCircle size={18}/>
+                </Col>
+            </Row>, unitPrice: "Rs.270.00", amount: "Rs.2700.00", deleteIcon: <Trash size={18}/>
+        },
+        {
+            id: 1, item: <img className='tr-image' src={CarrotImg}/>, name: "Carrot", qty: <Row>
+                <Col className='quantity-editor' xs={12}>
+                    <MinusCircle size={18}/>
+                    <label className='px-2'>10</label>
+                    <PlusCircle size={18}/>
+                </Col>
+            </Row>, unitPrice: "Rs.270.00", amount: "Rs.2700.00", deleteIcon: <Trash size={18}/>
+        }
+    ];
+
+    const columns = [
+        {dataField: 'id', text: '#'},
+        {dataField: 'item', text: 'Item'},
+        {dataField: 'name', text: 'Name'},
+        {dataField: 'qty', text: 'Qty'},
+        {dataField: 'unitPrice', text: 'UnitPrice'},
+        {dataField: 'amount', text: 'Amount'},
+        {dataField: 'deleteIcon', text: ''}
+    ];
+
+    const rowStyle = () => {
+        return {borderLeft:"none",borderRight:"none", borderBottom:"1px"}
+    }
 
     return (
         <Container fluid className='mt-5 checkOut'>
@@ -50,23 +77,8 @@ const Checkout: React.FC = () => {
             <Card className='ml-md-4 ml-0 px-3 py-3 my-3'>
                 <CartHeader/>
                 <Card.Body>
-                    <Table responsive>
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Item</th>
-                            <th>Name</th>
-                            <th>Qty</th>
-                            <th>Unit Price</th>
-                            <th>Amount</th>
-                            <th className='d-none'>delete icon</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {renderCheckedProducts}
-                        </tbody>
-                    </Table>
-
+                    <BootstrapTable bootstrap4 keyField='id' data={products} columns={columns}
+                                    rowStyle={rowStyle}/>
                 </Card.Body>
             </Card>
         </Container>
