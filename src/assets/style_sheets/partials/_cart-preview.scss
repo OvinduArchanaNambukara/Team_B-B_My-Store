@@ -15,7 +15,6 @@
   .icon {
     cursor: pointer;
   }
-
 }
 
 .popover {
@@ -23,9 +22,8 @@
   min-width: 30em;
 
   .cart-preview-container {
-
     .cart-preview {
-      font-size: .8em;
+      font-size: .9em;
 
       .item-table {
         overflow-y: scroll;
@@ -65,6 +63,7 @@
 
 @media (max-width: $layout-breakpoint-xs) {
   .popover {
-    min-width: 22em;
+    min-width: 24em;
+    font-size: .8em;
   }
 }
