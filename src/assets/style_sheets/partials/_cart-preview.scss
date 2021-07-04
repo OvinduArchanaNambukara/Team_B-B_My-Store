@@ -50,6 +50,13 @@
 
           .cart-item-qty {
             color: $item-qty-color;
+
+            .quantity-toggle {
+              color: $item-qty-color;
+              font-size: 1.2em;
+              margin: 0 .2em;
+              cursor: pointer;
+            }
           }
 
           .cart-item-subtotal {

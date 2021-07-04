@@ -2,6 +2,8 @@ import React from "react";
 import {Col, Image, Row} from "react-bootstrap";
 import DeleteIcon from "../common/DeleteIcon";
 import {IProduct} from "../../types/types";
+import {FiMinusCircle, FiPlusCircle} from "react-icons/all";
+import QuantityToggle from "../common/QuantityToggle";
 
 type CartItemProps = {
     product: IProduct
@@ -16,11 +18,11 @@ const CartItem: React.FC<CartItemProps> = (props) => {
             <Col xs={4} className="p-0 text-center">
                 <Image src={product.image} fluid={true} className="cart-item-image"/>
             </Col>
-            <Col xs={4} className="pl-4 pr-0">
+            <Col xs={5} md={4} className="pl-2 pl-md-4 pr-0">
                 <label className="cart-item-name mb-3">{product.name}</label><br/>
-                <label className="cart-item-qty">Qty: {quantity}</label>
+                <label className="cart-item-qty">Qty: <QuantityToggle quantity={quantity}/></label>
             </Col>
-            <Col xs={4} className="text-right pl-0">
+            <Col xs={3} md={4} className="text-right px-0 pr-md-2">
                 <label className="mb-3"><DeleteIcon size={15}/></label><br/>
                 <label className="cart-item-subtotal">
                     {`Rs. ${product.currentPrice * quantity}`}<small className="subtotal-cents">.00</small>
