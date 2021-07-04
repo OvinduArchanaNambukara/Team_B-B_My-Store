@@ -12,7 +12,7 @@ const BottomNav: React.FC = () => {
         <NavDropdown.Item href="#grocery">Grocery</NavDropdown.Item>
         <NavDropdown.Item href="#meat">Meat</NavDropdown.Item>
       </NavDropdown>
-      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0"/>
       <Navbar.Collapse id="basic-navbar-nav" className="bottom-nav-collapse">
         <Nav className="bottom-nav mr-auto ">
           <Nav.Link href="#home">Home</Nav.Link>
