@@ -2,7 +2,6 @@ import React from "react";
 import {Col, Image, Row} from "react-bootstrap";
 import DeleteIcon from "../common/DeleteIcon";
 import {IProduct} from "../../types/types";
-import {FiMinusCircle, FiPlusCircle} from "react-icons/all";
 import QuantityToggle from "../common/QuantityToggle";
 
 type CartItemProps = {

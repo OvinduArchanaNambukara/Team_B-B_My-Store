@@ -6,7 +6,6 @@ import {CartItems} from "../../constants/constants";
 import EmptyCartPreview from "./EmptyCartPreview";
 import CheckOutButton from "../common/CheckOutButton";
 import CartIcon from "./CartIcon";
-import {Simulate} from "react-dom/test-utils";
 
 const CartPreview: React.FC = () => {
     const [show, setShow] = useState(false);
