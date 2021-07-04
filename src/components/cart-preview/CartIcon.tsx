@@ -14,7 +14,7 @@ const CartIcon: React.FC<CartIconProps> = (props) => {
         <React.Fragment>
             <Col className="cart-icon p-0 mr-3">
                 <Badge className="count-badge mr-3">{itemCount}</Badge>
-                <FiShoppingCart size={35} onClick={handleClick} className="icon mt-2 mr-2"/>
+                <FiShoppingCart size={35} onClick={handleClick} className="icon mt-1 mr-1"/>
             </Col>
 
         </React.Fragment>
