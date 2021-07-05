@@ -31,3 +31,8 @@ export interface ICartItem {
     product: IProduct
     quantity: number
 }
+
+export interface ICheckoutProduct{
+    quantity:number
+    product:IProduct
+}

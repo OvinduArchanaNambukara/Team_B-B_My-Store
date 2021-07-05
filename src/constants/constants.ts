@@ -6,6 +6,7 @@ import GarlicImg from "../assets/images/groceryImages/garlic.jpg";
 import LeaksImg from "../assets/images/groceryImages/leaks.jpg";
 import OnionImg from "../assets/images/groceryImages/onion.jpg";
 import PotatoImg from "../assets/images/groceryImages/potato.jpg";
+import {ICheckoutProduct} from "../types/types";
 
 export const deleteIconColor: string = "#3c6382";
 
@@ -33,3 +34,48 @@ ProductList.forEach((prod: IProduct) => {
     CartItems.push({product: prod, quantity: Math.floor(Math.random() * 20) + 1});
 })
 
+const checkoutProducts: ICheckoutProduct[] = [
+    {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 240, oldPrice: 280
+        }
+    }, {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 270, oldPrice: 280
+        }
+    }, {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 270, oldPrice: 280
+        }
+    }, {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 270, oldPrice: 280
+        }
+    }, {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 270, oldPrice: 280
+        }
+    }, {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 270, oldPrice: 280
+        }
+    }, {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 270, oldPrice: 280
+        }
+    }, {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 270, oldPrice: 280
+        }
+    }, {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 270, oldPrice: 280
+        }
+    }, {
+        quantity: 5, product: {
+            name: "Carrot", image: CarrotImg, currentPrice: 270, oldPrice: 280
+        }
+    },
+]
+
+export default checkoutProducts;
