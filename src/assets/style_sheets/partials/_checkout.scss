@@ -1,6 +1,5 @@
 @import "variables";
 
-
 .checkOut {
   font-size: 1em;
 
@@ -19,24 +18,96 @@
     }
   }
 
-  .table {
+  table {
+    border: none;
 
-    .tr-image {
-      width: 90px;
-      height: 80px;
-
+    thead {
+      tr {
+        border-top: none;
+        th:first-child{
+          text-align: left;
+        }
+        th {
+          border-left: none;
+          border-right: none;
+          border-top: none;
+          text-align: center;
+        }
+      }
     }
 
-    .quantity-editor {
-      label {
-        font-size: 1.1em;
-      }
-
-      svg {
-        color: $checkout-quantity-svg-color;
-
+    tbody {
+      tr {
+        text-align: center;
+        td:first-child{
+          text-align: left;
+        }
+        td {
+          border-left: none;
+          border-right: none;
+          text-align: center;
+          vertical-align: middle;
+        }
       }
     }
+  }
+  .quantity-editor{
+    min-width: 10em;
+  }
+
+  .react-bootstrap-table-pagination {
+    div {
+      span:first-child {
+        margin-right: 10px;
+      }
+    }
+
+    div:nth-child(2) {
+      ul {
+        float: right;
+      }
+    }
+
+    .react-bootstrap-table-pagination-list {
+      ul {
+        .active {
+          a {
+            background-color: #81C784;
+          }
+        }
+
+        li {
+          a {
+            color: #4F86A7;
+            border-color: #4F86A7;
+          }
+        }
+      }
+    }
+  }
+
+  .tr-image {
+    width: 90px;
+    height: 60px;
+
+  }
+
+  .quantity-editor {
+    label {
+      font-size: 1.1em;
+    }
+
+    svg {
+      color: $checkout-quantity-svg-color;
+
+    }
+  }
+
+  .react-bootstrap-table table {
+    table-layout: auto;
+  }
+  .total{
+    font-weight: bold;
   }
 
   svg {
@@ -49,23 +120,23 @@
   .checkOut {
     font-size: .8em;
 
-    .table {
-      .tr-image {
-        width: 50px;
-        height: 50px;
-      }
+
+    .tr-image {
+      width: 50px;
+      height: 50px;
     }
+
   }
 }
 
 @media (max-width: $layout-breakpoint-lg + 35px) and (min-width: $layout-breakpoint-xs) {
   .checkOut {
 
-    .table {
-      .tr-image {
-        width: 90px;
-        height: 70px;
-      }
+
+    .tr-image {
+      width: 90px;
+      height: 70px;
     }
+
   }
 }
