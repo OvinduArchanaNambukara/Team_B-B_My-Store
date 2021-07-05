@@ -72,14 +72,14 @@
       ul {
         .active {
           a {
-            background-color: #81C784;
+            background-color: $checkout-active-pagination-color;
           }
         }
 
         li {
           a {
-            color: #4F86A7;
-            border-color: #4F86A7;
+            color: $checkout-pagination-color;
+            border-color: $checkout-pagination-color;
           }
         }
       }
