@@ -28,6 +28,12 @@
   .logo-area {
     font-size: 1em;
 
+    .dropdown-toggle {
+      background-color: transparent;
+      border: 0;
+      padding-bottom: 0;
+    }
+
     p {
       font-size: 3em;
       font-weight: 600;

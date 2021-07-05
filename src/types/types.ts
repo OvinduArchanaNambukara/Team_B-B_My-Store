@@ -27,6 +27,11 @@ export interface IProduct {
     oldPrice: number | null
 }
 
+export interface ICartItem {
+    product: IProduct
+    quantity: number
+}
+
 export interface ICheckoutProduct{
     quantity:number
     product:IProduct
