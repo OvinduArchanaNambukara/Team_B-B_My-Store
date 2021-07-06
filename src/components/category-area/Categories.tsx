@@ -5,7 +5,6 @@ import furniture from "../../assets/images/categories/furniture.png";
 import vegetables from "../../assets/images/categories/vegetables.png";
 import meat from "../../assets/images/categories/meat.png";
 import grocery from "../../assets/images/categories/grocery.png";
-import electronics from "../../assets/images/categories/electronics.png";
 import Category from "./Category";
 import {categoryTypes} from "../../types/types";
 
@@ -14,8 +13,7 @@ const temp: categoryTypes[] = [
     {image: furniture, name: 'Furniture'},
     {image: vegetables, name: 'Vegetables'},
     {image: meat, name: 'Meat'},
-    {image: grocery, name: 'Grocery'},
-    {image: electronics, name: 'Electronics'}
+    {image: grocery, name: 'Grocery'}
 ];
 
 const Categories: React.FC = () => {

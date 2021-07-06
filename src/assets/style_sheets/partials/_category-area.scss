@@ -16,6 +16,9 @@
   }
 
   .category {
+    max-width: 20%;
+    flex: 0 0 20%;
+
     div {
       border: 1px solid $category-item-border;
       border-radius: .5em;
@@ -40,8 +43,6 @@
   .categories {
     font-size: .8em;
 
-    .category {
-    }
   }
 }
 
