@@ -1,4 +1,4 @@
-import React, {Suspense, lazy} from "react";
+import React, {lazy, Suspense} from "react";
 import {Route, Switch, useLocation} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
@@ -17,21 +17,23 @@ const Routes: React.FC = () => {
       <TransitionGroup>
         <CSSTransition classNames='page' timeout={1000} key={location.key}>
           <Suspense fallback={<Loading/>}>
-          <Switch location={location}>
-            <Route path='/checkout'>
-              <Checkout/>
-            </Route>
-            <Route path='/'>
-              <Container fluid={true}>
-                <Welcome/>
-                <SearchBar/>
-              </Container>
-              <Container>
-                <CategoryArea/>
-                <Products/>
-              </Container>
-            </Route>
-          </Switch>
+            <Switch location={location}>
+              <Route path='/checkout'>
+                <Container fluid={true}>
+                  <Checkout/>
+                </Container>
+              </Route>
+              <Route path='/'>
+                <Container fluid={true}>
+                  <Welcome/>
+                  <SearchBar/>
+                </Container>
+                <Container>
+                  <CategoryArea/>
+                  <Products/>
+                </Container>
+              </Route>
+            </Switch>
           </Suspense>
         </CSSTransition>
       </TransitionGroup>

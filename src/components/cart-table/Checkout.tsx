@@ -5,6 +5,7 @@ import ContinueShoppingBtn from "./ContinueShoppingBtn";
 import CartHeader from "./CartHeader";
 import CartTotal from "./CartTotal";
 import CartTable from "./CartTable";
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 const Checkout: React.FC = () => {
 
@@ -15,8 +16,8 @@ const Checkout: React.FC = () => {
   }
 
   return (
-      <Row className='mt-4 checkOut mx-0'>
-        <Col xs={12}>
+      <Row className='mt-4 checkOut mx-0 justify-content-center'>
+        <Col xs={12} lg={10} className='px-0'>
           <Row>
             <Col xs={12}>
               <Row className='pl-0 pl-md-4 ml-0 mr-2 '>
