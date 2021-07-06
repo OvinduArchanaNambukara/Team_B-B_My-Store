@@ -58,6 +58,10 @@
       font-size: 3em;
       font-weight: 600;
       color: $logo-color;
+
+      span {
+        cursor: pointer;
+      }
     }
 
     svg {
