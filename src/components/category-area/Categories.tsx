@@ -1,19 +1,19 @@
 import React from "react";
 import {Col, Row} from "react-bootstrap";
-import fruit from "../../assets/images/categories/fruits.png";
-import furniture from "../../assets/images/categories/furniture.png";
-import vegetables from "../../assets/images/categories/vegetables.png";
-import meat from "../../assets/images/categories/meat.png";
-import grocery from "../../assets/images/categories/grocery.png";
+import fruit from "../../assets/images/pharmacy.webp";
+import furniture from "../../assets/images/electronic.webp";
+import vegetables from "../../assets/images/all.webp";
+import meat from "../../assets/images/food.webp";
+import grocery from "../../assets/images/grocery.webp";
 import Category from "./Category";
 import {categoryTypes} from "../../types/types";
 
 const temp: categoryTypes[] = [
-    {image: fruit, name: 'Fruits'},
-    {image: furniture, name: 'Furniture'},
-    {image: vegetables, name: 'Vegetables'},
-    {image: meat, name: 'Meat'},
-    {image: grocery, name: 'Grocery'}
+  {image: fruit, name: 'Fruits'},
+  {image: furniture, name: 'Furniture'},
+  {image: vegetables, name: 'Vegetables'},
+  {image: meat, name: 'Meat'},
+  {image: grocery, name: 'Grocery'}
 ];
 
 const Categories: React.FC = () => {
