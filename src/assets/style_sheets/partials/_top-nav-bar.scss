@@ -4,8 +4,17 @@
   font-size: 1em;
 
   .header-nav {
-    font-size: 1em;
+    font-size: .8em;
     border-bottom: 1px solid $header-nav-bottom-color;
+
+    a:first-child {
+      color: $tele-phone-number-color;
+    }
+
+    a {
+      align-items: center;
+      display: flex;
+    }
 
     svg {
       font-size: 2em;
@@ -17,11 +26,21 @@
       background-color: transparent;
       color: $logo-color;
       border-color: $logo-color;
+
+      &:hover {
+        background-color: $logo-color;
+        color: white;
+      }
     }
 
     .navbar-toggler {
       border: 1px solid $bottom-nav-dropdown-border;
       padding: 0 .3em;
+
+      svg {
+        color: $close-button-color;
+        margin-right: 0;
+      }
     }
   }
 
