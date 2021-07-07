@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import {Button, Col, Nav, Navbar} from "react-bootstrap";
+import {Col, Nav, Navbar} from "react-bootstrap";
 import {CgClose, FaTruck, FiUser, IoCallOutline} from "react-icons/all";
+import ButtonArea from "./ButtonArea";
 
 const HeaderArea: React.FC = () => {
   const [toggleIcon, setToggleIcon] = useState<boolean>(false);
@@ -39,8 +40,7 @@ const HeaderArea: React.FC = () => {
                 <FiUser/>
                 My Account
               </Nav.Link>
-              <Button className='my-md-2 py-md-0'>Register</Button>
-              <Button className='border-0 my-md-2 py-md-0 ml-md-1 mt-1 mb-1'>Log in</Button>
+              <ButtonArea/>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
