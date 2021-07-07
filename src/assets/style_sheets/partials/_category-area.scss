@@ -34,20 +34,26 @@
         border-color: $categories-title-color;
       }
     }
-
   }
 }
 
 @media (max-width: $layout-breakpoint-xs) {
   .categories {
     font-size: .6em;
+
+    .category {
+      div {
+        p {
+          font-size: .9em;
+        }
+      }
+    }
   }
 }
 
 @media (min-width: $layout-breakpoint-xs) and (max-width: $layout-breakpoint-md) {
   .categories {
     font-size: .8em;
-
   }
 }
 
