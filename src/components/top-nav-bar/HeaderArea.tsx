@@ -1,13 +1,22 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Col, Nav, Navbar} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {CgClose, FaTruck, FiUser, IoCallOutline} from "react-icons/all";
 import ButtonArea from "./ButtonArea";
 import NightModeButton from "./NightModeButton";
+import {changeToLight, changeToNight} from "../../custom-styles/night-mode-style";
 
 const HeaderArea: React.FC = () => {
   const [toggleIcon, setToggleIcon] = useState<boolean>(false);
   const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isClicked) {
+      changeToNight();
+    } else {
+      changeToLight();
+    }
+  }, [isClicked])
 
   /**
    * when click change the toggle icon
