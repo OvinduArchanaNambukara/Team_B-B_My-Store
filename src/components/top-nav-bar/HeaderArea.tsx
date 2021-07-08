@@ -7,6 +7,7 @@ import NightModeButton from "./NightModeButton";
 
 const HeaderArea: React.FC = () => {
   const [toggleIcon, setToggleIcon] = useState<boolean>(false);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
   /**
    * when click change the toggle icon
@@ -14,6 +15,14 @@ const HeaderArea: React.FC = () => {
    */
   const handleToggleIcon = () => {
     setToggleIcon(!toggleIcon);
+  }
+
+  /**
+   * change state value of the isclicked
+   * @author Ovindu
+   */
+  const handleOnChange = () => {
+    setIsClicked(!isClicked);
   }
 
   return (
@@ -27,7 +36,8 @@ const HeaderArea: React.FC = () => {
               </NavLink>
             </Nav.Link>
           </Nav>
-          <NightModeButton customClassName={'align-items-center pr-md-3 pl-4 pl-md-0 d-flex d-md-none ml-auto'}/>
+          <NightModeButton customClassName={'align-items-center pr-md-3 pl-4 pl-md-0 d-flex d-md-none ml-auto'}
+                           onClicked={handleOnChange} isClicked={isClicked}/>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={handleToggleIcon}>
             {toggleIcon && <CgClose size={30}/>}
           </Navbar.Toggle>
@@ -51,7 +61,8 @@ const HeaderArea: React.FC = () => {
                   My Account
                 </NavLink>
               </Nav.Link>
-              <NightModeButton customClassName={'align-items-center pr-md-3 pl-4 pl-md-0 d-none d-md-flex'}/>
+              <NightModeButton customClassName={'align-items-center pr-md-3 pl-4 pl-md-0 d-none d-md-flex'}
+                               onClicked={handleOnChange} isClicked={isClicked}/>
               <ButtonArea/>
             </Nav>
           </Navbar.Collapse>
