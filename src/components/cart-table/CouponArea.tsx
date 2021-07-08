@@ -32,7 +32,7 @@ const CouponArea:React.FC = () => {
 
     return(
         <Row className='discountArea px-3 px-md-0'>
-            <Col md={{span: 6, offset: 6}} xs={12}>
+            <Col xl={{span: 8, offset: 4}} md={{span:6, offset:6}} xs={12}>
                 <Form onSubmit={handleSubmit} validated={isFormValidate || wrongDiscountCode} noValidate>
                     <Form.Group>
                         <Row>
