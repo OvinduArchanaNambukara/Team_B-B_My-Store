@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Toggle from "react-toggle";
 import {CgSun, IoMoonOutline} from "react-icons/all"
 import {iconColors} from "../../custom-styles/custom-nightmode-icons";
 
-type NightModeButton = {
+type NightModeButtonProps = {
   customClassName: string
   onClicked: () => void
   isClicked: boolean
 }
 
-const NightModeButton: React.FC<NightModeButton> = (props) => {
+const NightModeButton: React.FC<NightModeButtonProps> = (props) => {
   const {isClicked, customClassName, onClicked} = props
 
   return (
