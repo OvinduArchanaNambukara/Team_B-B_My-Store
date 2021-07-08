@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Col, Nav, Navbar} from "react-bootstrap";
+import {NavLink} from "react-router-dom";
 import {CgClose, FaTruck, FiUser, IoCallOutline} from "react-icons/all";
 import ButtonArea from "./ButtonArea";
 
@@ -18,9 +19,11 @@ const HeaderArea: React.FC = () => {
       <Col xs={12} className='px-0 header-nav'>
         <Navbar collapseOnSelect expand="md" className='py-0'>
           <Nav className='d-md-none'>
-            <Nav.Link href="#lookok" className='mr-4'>
-              <IoCallOutline/>
-              +94 112 123 456
+            <Nav.Link className='mr-4'>
+              <NavLink to='/'>
+                <IoCallOutline/>
+                +94 112 123 456
+              </NavLink>
             </Nav.Link>
           </Nav>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={handleToggleIcon}>
@@ -28,17 +31,23 @@ const HeaderArea: React.FC = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className='ml-auto'>
-              <Nav.Link href="#call" className='d-md-flex d-none pr-3'>
-                <IoCallOutline/>
-                +94 112 123 456
+              <Nav.Link className='d-md-flex d-none pr-3'>
+                <NavLink to='/'>
+                  <IoCallOutline/>
+                  +94 112 123 456
+                </NavLink>
               </Nav.Link>
-              <Nav.Link href="#delivery" className='pr-3'>
-                <FaTruck/>
-                Delivery Areas
+              <Nav.Link className='pr-3'>
+                <NavLink to='/'>
+                  <FaTruck/>
+                  Delivery Areas
+                </NavLink>
               </Nav.Link>
-              <Nav.Link href="#user" className='pr-3'>
-                <FiUser/>
-                My Account
+              <Nav.Link className='pr-3'>
+                <NavLink to='/'>
+                  <FiUser/>
+                  My Account
+                </NavLink>
               </Nav.Link>
               <ButtonArea/>
             </Nav>
