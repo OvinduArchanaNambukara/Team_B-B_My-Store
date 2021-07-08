@@ -3,6 +3,7 @@ import {Col, Nav, Navbar} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {CgClose, FaTruck, FiUser, IoCallOutline} from "react-icons/all";
 import ButtonArea from "./ButtonArea";
+import NightModeButton from "./NightModeButton";
 
 const HeaderArea: React.FC = () => {
   const [toggleIcon, setToggleIcon] = useState<boolean>(false);
@@ -25,6 +26,7 @@ const HeaderArea: React.FC = () => {
                 +94 112 123 456
               </NavLink>
             </Nav.Link>
+            <NightModeButton/>
           </Nav>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={handleToggleIcon}>
             {toggleIcon && <CgClose size={30}/>}
@@ -49,6 +51,7 @@ const HeaderArea: React.FC = () => {
                   My Account
                 </NavLink>
               </Nav.Link>
+              <NightModeButton/>
               <ButtonArea/>
             </Nav>
           </Navbar.Collapse>
