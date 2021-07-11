@@ -27,7 +27,7 @@ const CartItem: React.FC<CartItemProps> = (props) => {
         </Col>
         <Col xs={5} md={4} className="pl-2 pl-md-4 pr-0">
           <label className="cart-item-name mb-3">{product.name}</label><br/>
-          <label className="cart-item-qty">Qty: <QuantityToggle quantity={quantity}/></label>
+          <label className="cart-item-qty">Qty: <QuantityToggle quantity={quantity} index={index}/></label>
         </Col>
         <Col xs={3} md={4} className="text-right px-0 pr-md-2">
           <label className="mb-3">

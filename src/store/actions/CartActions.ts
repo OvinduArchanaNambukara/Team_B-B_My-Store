@@ -1,6 +1,6 @@
 import {ICheckoutProduct} from "../../types/types";
-import {AddToCart, DeleteFromCart, DisplayCartPreview} from "../../types/store/CartActionTypes";
-import {ADD_TO_CART, DELETE_FROM_CART, DISPLAY_CART_PREVIEW} from "../constants/CartConstants";
+import {AddToCart, ChangeQuantity, DeleteFromCart, DisplayCartPreview} from "../../types/store/CartActionTypes";
+import {ADD_TO_CART, CHANGE_QUANTITY, DELETE_FROM_CART, DISPLAY_CART_PREVIEW} from "../constants/CartConstants";
 
 export const addToCart = (item: ICheckoutProduct): AddToCart => {
   return {
@@ -20,5 +20,15 @@ export const displayCartPreview = (value: boolean): DisplayCartPreview => {
   return {
     type: DISPLAY_CART_PREVIEW,
     payload: value
+  }
+}
+
+export const changeQuantity = (index: number, quantity: number): ChangeQuantity => {
+  return {
+    type: CHANGE_QUANTITY,
+    payload: {
+      index: index,
+      quantity: quantity
+    }
   }
 }
