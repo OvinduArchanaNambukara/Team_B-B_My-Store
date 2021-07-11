@@ -19,16 +19,18 @@ const CartTable: React.FC<CartTableProps> = (props) => {
   let total: number = 0;
   const products: any = [];
   checkedProducts.map((checkedProduct: ICheckoutProduct, index) => {
-    total += checkedProduct.product.currentPrice * checkedProduct.quantity;
-    products.push({
-      id: index + 1,
-      item: <CartImage image={checkedProduct.product.image}/>,
-      name: checkedProduct.product.name,
-      qty: <Quantity quantity={checkedProduct.quantity}/>,
-      unitPrice: <UnitPrice price={checkedProduct.product.currentPrice}/>,
-      amount: <UnitPrice price={checkedProduct.product.currentPrice * checkedProduct.quantity}/>,
-      deleteIcon: <DeleteIcon/>
-    })
+    if (checkedProduct.quantity) {
+      total += checkedProduct.product.currentPrice * checkedProduct.quantity;
+      products.push({
+        id: index + 1,
+        item: <CartImage image={checkedProduct.product.image}/>,
+        name: checkedProduct.product.name,
+        qty: <Quantity quantity={checkedProduct.quantity}/>,
+        unitPrice: <UnitPrice price={checkedProduct.product.currentPrice}/>,
+        amount: <UnitPrice price={checkedProduct.product.currentPrice * checkedProduct.quantity}/>,
+        deleteIcon: <DeleteIcon/>
+      })
+    }
   });
 
   onGetTotal(total);
