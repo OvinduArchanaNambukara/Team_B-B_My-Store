@@ -46,7 +46,8 @@ const CartPreview: React.FC = () => {
                                 <CartItem
                                     key={index}
                                     product={item.product}
-                                    quantity={item.quantity}/>
+                                    quantity={item.quantity}
+                                    index={index}/>
                             );
                           }
                         })

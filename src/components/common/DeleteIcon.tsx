@@ -5,14 +5,15 @@ import {deleteIconColor} from "../../constants/constants";
 
 type DeleteIconProps = {
     size: number
+    onDeleteClick: () => void
 }
 
 const DeleteIcon: React.FC<DeleteIconProps>= (props) => {
-    const {size} = props;
+    const {size, onDeleteClick} = props;
 
     return (
         <React.Fragment>
-            <FiTrash className="delete-icon" size={size} color={deleteIconColor}/>
+            <FiTrash className="delete-icon" size={size} color={deleteIconColor} onClick={onDeleteClick}/>
         </React.Fragment>
     );
 }
