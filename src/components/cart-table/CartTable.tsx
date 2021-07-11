@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import Quantity from "./Quantity";
@@ -6,14 +6,15 @@ import DeleteIcon from "./DeleteIcon";
 import CartImage from "./CartImage";
 import UnitPrice from "./UnitPrice";
 import {ICheckoutProduct} from "../../types/types";
-import checkoutProducts from "../../constants/constants";
+import {useSelector} from "react-redux";
+import {RootState} from "../../store/reducers";
 
 type CartTableProps = {
   onGetTotal: (total: number) => void
 }
 
 const CartTable: React.FC<CartTableProps> = (props) => {
-  const [checkedProducts, setCheckedProducts] = useState<ICheckoutProduct[]>(checkoutProducts);
+  const checkedProducts: ICheckoutProduct[] = useSelector((state: RootState) => state.cartReducer.cartList)
   const {onGetTotal} = props;
 
   let total: number = 0;
@@ -28,7 +29,7 @@ const CartTable: React.FC<CartTableProps> = (props) => {
         qty: <Quantity quantity={checkedProduct.quantity}/>,
         unitPrice: <UnitPrice price={checkedProduct.product.currentPrice}/>,
         amount: <UnitPrice price={checkedProduct.product.currentPrice * checkedProduct.quantity}/>,
-        deleteIcon: <DeleteIcon/>
+        deleteIcon: <DeleteIcon index={index}/>
       })
     }
   });
