@@ -23,16 +23,18 @@ const Product: React.FC<ProductProps> = (props) => {
    * @author Ovindu
    */
   const handleOnClick = () => {
-    const item: ICheckoutProduct = {
-      quantity: quantity,
-      product: {
-        name: name,
-        image: image,
-        oldPrice: oldPrice,
-        currentPrice: currentPrice
+    if (quantity) {
+      const item: ICheckoutProduct = {
+        quantity: quantity,
+        product: {
+          name: name,
+          image: image,
+          oldPrice: oldPrice,
+          currentPrice: currentPrice
+        }
       }
+      dispatch(addToCart(item));
     }
-    dispatch(addToCart(item));
   }
 
   return (

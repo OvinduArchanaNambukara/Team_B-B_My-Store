@@ -33,6 +33,6 @@ export interface ICartItem {
 }
 
 export interface ICheckoutProduct {
-  quantity: number | null
+  quantity: number
   product: IProduct
 }

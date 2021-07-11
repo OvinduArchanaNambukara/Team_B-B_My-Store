@@ -26,7 +26,7 @@ const CartTable: React.FC<CartTableProps> = (props) => {
         id: index + 1,
         item: <CartImage image={checkedProduct.product.image}/>,
         name: checkedProduct.product.name,
-        qty: <Quantity quantity={checkedProduct.quantity}/>,
+        qty: <Quantity quantity={checkedProduct.quantity} index={index}/>,
         unitPrice: <UnitPrice price={checkedProduct.product.currentPrice}/>,
         amount: <UnitPrice price={checkedProduct.product.currentPrice * checkedProduct.quantity}/>,
         deleteIcon: <DeleteIcon index={index}/>
