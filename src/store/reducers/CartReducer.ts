@@ -1,13 +1,15 @@
 import {ICheckoutProduct} from "../../types/types";
 import {CartActionTypes} from "../../types/store/CartActionTypes";
-import {ADD_TO_CART, DELETE_FROM_CART} from "../constants/CartConstants";
+import {ADD_TO_CART, DELETE_FROM_CART, DISPLAY_CART_PREVIEW} from "../constants/CartConstants";
 
 const initialState: cartStateType = {
-  cartList: []
+  cartList: [],
+  displayCartPreview: false
 };
 
 interface cartStateType {
-  cartList: ICheckoutProduct[]
+  cartList: ICheckoutProduct[],
+  displayCartPreview: boolean
 }
 
 export const CartReducer = (state: cartStateType = initialState, action: CartActionTypes) => {
@@ -25,6 +27,12 @@ export const CartReducer = (state: cartStateType = initialState, action: CartAct
             (item: ICheckoutProduct, index: number) =>
                 index !== action.payload
         )
+      }
+    }
+    case DISPLAY_CART_PREVIEW: {
+      return {
+        ...state,
+        displayCartPreview: action.payload
       }
     }
     default:

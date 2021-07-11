@@ -1,4 +1,4 @@
-import {ADD_TO_CART, DELETE_FROM_CART} from "../../store/constants/CartConstants";
+import {ADD_TO_CART, DELETE_FROM_CART, DISPLAY_CART_PREVIEW} from "../../store/constants/CartConstants";
 import {ICheckoutProduct} from "../types";
 
 
@@ -12,4 +12,9 @@ export interface DeleteFromCart {
   payload: number
 }
 
-export type CartActionTypes = AddToCart | DeleteFromCart
+export interface DisplayCartPreview {
+  type: typeof DISPLAY_CART_PREVIEW
+  payload: boolean
+}
+
+export type CartActionTypes = AddToCart | DeleteFromCart | DisplayCartPreview

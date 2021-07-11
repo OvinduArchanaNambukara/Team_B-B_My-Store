@@ -1,12 +1,20 @@
 import React from "react";
 import {Col} from "react-bootstrap";
 import {useHistory} from "react-router-dom";
+import {displayCartPreview} from "../../store/actions/CartActions";
+import {useDispatch} from "react-redux";
 
 const Logo: React.FC = () => {
   const history = useHistory();
-
+  const dispatch = useDispatch();
+  
+  /**
+   * change route to / and hide cart preview
+   * @author Ovindu
+   */
   const handleOnClick = () => {
     history.push('/');
+    dispatch(displayCartPreview(false));
   }
 
   return (

@@ -5,19 +5,22 @@ import CartItem from "./CartItem";
 import EmptyCartPreview from "./EmptyCartPreview";
 import CheckOutButton from "../common/CheckOutButton";
 import CartIcon from "./CartIcon";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store/reducers";
 import {ICheckoutProduct} from "../../types/types";
+import {displayCartPreview} from "../../store/actions/CartActions";
+
 
 const CartPreview: React.FC = () => {
   const CartItems: ICheckoutProduct[] = useSelector((state: RootState) => state.cartReducer.cartList);
-  const [show, setShow] = useState(false);
+  const displayCart: boolean = useSelector((state: RootState) => state.cartReducer.displayCartPreview);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
+  const dispatch = useDispatch();
   let subTotal = 0;
 
   const handleClick = (event: any) => {
-    setShow(!show);
+    dispatch(displayCartPreview(!displayCart));
     setTarget(event.target);
   };
 
@@ -25,7 +28,7 @@ const CartPreview: React.FC = () => {
       <div ref={ref}>
         <CartIcon handleClick={handleClick} itemCount={CartItems.length}/>
         <Overlay
-            show={show}
+            show={displayCart}
             target={target}
             placement="bottom-end"
             container={ref.current}
