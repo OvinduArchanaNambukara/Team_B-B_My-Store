@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Col, FormControl, InputGroup} from "react-bootstrap";
 
 type QuantityProps = {
@@ -7,18 +7,27 @@ type QuantityProps = {
 
 const Quantity: React.FC<QuantityProps> = (props) => {
   const [unit, setUnit] = useState<boolean>(true);
+  const [value, setValue] = useState<number>(1);
 
   const handleChangeUnit = () => {
     setUnit(!unit);
   }
 
   /**
-   * When changing quantity, change the value string to number add pass tho the props quantity()
+   * when value change pass that value to props quantity()
+   * @author Ovindu
+   */
+  useEffect(() => {
+    props.quantity(value);
+  }, [value]);
+
+  /**
+   * When changing quantity, change the value string to number and update the value
    * @param e
    * @author Ovindu
    */
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    props.quantity(parseInt(e.target.value));
+    setValue(parseInt(e.target.value));
   }
 
   return (
@@ -28,6 +37,7 @@ const Quantity: React.FC<QuantityProps> = (props) => {
               type="number"
               min="1"
               onChange={handleOnChange}
+              value={value}
           />
           <InputGroup.Text id="basic-addon1" onClick={() => handleChangeUnit()}>{unit ? "kg" : "g"}</InputGroup.Text>
         </InputGroup>
