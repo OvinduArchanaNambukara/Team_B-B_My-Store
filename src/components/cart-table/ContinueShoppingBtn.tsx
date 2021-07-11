@@ -2,12 +2,20 @@ import React from "react";
 import {Button, Col} from "react-bootstrap";
 import {BiChevronLeft} from "react-icons/all";
 import {useHistory} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {displayCartPreview} from "../../store/actions/CartActions";
 
 const ContinueShoppingBtn: React.FC = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
+  /**
+   * change route to / and hide cart preview
+   * @author Ovindu
+   */
   const handleOnClick = () => {
     history.push('/');
+    dispatch(displayCartPreview(false));
   }
 
   return (
