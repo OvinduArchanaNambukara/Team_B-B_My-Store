@@ -1,6 +1,5 @@
 import React, {lazy, Suspense} from "react";
 import {Route, Switch, useLocation} from "react-router-dom";
-import {Container} from "react-bootstrap";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import Loading from "./components/loading/Loading";
 
@@ -19,19 +18,13 @@ const Routes: React.FC = () => {
           <Suspense fallback={<Loading/>}>
             <Switch location={location}>
               <Route path='/checkout'>
-                <Container fluid={true}>
                   <Checkout/>
-                </Container>
               </Route>
               <Route path='/'>
-                <Container fluid={true}>
                   <Welcome/>
                   <SearchBar/>
-                </Container>
-                <Container>
                   <CategoryArea/>
                   <Products/>
-                </Container>
               </Route>
             </Switch>
           </Suspense>
