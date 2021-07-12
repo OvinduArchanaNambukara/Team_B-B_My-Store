@@ -29,7 +29,7 @@ const CartTable: React.FC<CartTableProps> = (props) => {
         qty: <Quantity quantity={checkedProduct.quantity} index={index}/>,
         unitPrice: <UnitPrice price={checkedProduct.product.currentPrice}/>,
         amount: <UnitPrice price={checkedProduct.product.currentPrice * checkedProduct.quantity}/>,
-        deleteIcon: <DeleteIcon index={index}/>
+        deleteIcon: <DeleteIcon index={index} id={checkedProduct.product.id}/>
       })
     }
   });
