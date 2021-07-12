@@ -1,6 +1,12 @@
 import {ICheckoutProduct} from "../../types/types";
 import {CartActionTypes} from "../../types/store/CartActionTypes";
-import {ADD_TO_CART, CHANGE_QUANTITY, DELETE_FROM_CART, DISPLAY_CART_PREVIEW} from "../constants/CartConstants";
+import {
+  ADD_TO_CART,
+  CHANGE_QUANTITY,
+  DELETE_FROM_CART,
+  DISPLAY_CART_PREVIEW,
+  UPDATE_CART_ITEM
+} from "../constants/CartConstants";
 
 const initialState: cartStateType = {
   cartList: [],
@@ -38,6 +44,18 @@ export const CartReducer = (state: cartStateType = initialState, action: CartAct
     case CHANGE_QUANTITY: {
       const cartList: ICheckoutProduct[] = [...state.cartList];
       cartList[action.payload.index].quantity += action.payload.quantity;
+      return {
+        ...state,
+        cartList: cartList
+      }
+    }
+    case UPDATE_CART_ITEM: {
+      const cartList: ICheckoutProduct[] = [...state.cartList];
+      cartList.map((item: ICheckoutProduct) => {
+        if (item.product.id === action.payload.id) {
+          item.quantity = action.payload.quantity;
+        }
+      })
       return {
         ...state,
         cartList: cartList

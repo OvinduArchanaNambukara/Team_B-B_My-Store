@@ -2,15 +2,25 @@ import React from 'react';
 import {Button, Col} from "react-bootstrap";
 
 type AddToCartButtonProps = {
-  onClick: () => void
+  onAddToCartClick: () => void
   inCart: boolean
+  onUpdateClick: () => void
 }
 
 const AddToCartBtn: React.FC<AddToCartButtonProps> = (props) => {
-  const {onClick, inCart} = props;
+  const {onAddToCartClick, inCart, onUpdateClick} = props;
 
+  /**
+   * when add to cart, click call onAddToCartClick()
+   * when update click, call onUpdateClick()
+   * @author Ovindu, Kaveesh
+   */
   const handleClick = () => {
-    onClick();
+    if (inCart) {
+      onUpdateClick();
+    } else {
+      onAddToCartClick();
+    }
   }
 
   return (

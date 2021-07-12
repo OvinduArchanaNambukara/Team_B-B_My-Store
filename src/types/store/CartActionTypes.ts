@@ -2,10 +2,9 @@ import {
   ADD_TO_CART,
   CHANGE_QUANTITY,
   DELETE_FROM_CART,
-  DISPLAY_CART_PREVIEW
+  DISPLAY_CART_PREVIEW, UPDATE_CART_ITEM
 } from "../../store/constants/CartConstants";
 import {ICheckoutProduct} from "../types";
-
 
 export interface AddToCart {
   type: typeof ADD_TO_CART,
@@ -30,4 +29,12 @@ export interface ChangeQuantity {
   }
 }
 
-export type CartActionTypes = AddToCart | DeleteFromCart | DisplayCartPreview | ChangeQuantity
+export interface UpdateCartItem {
+  type: typeof UPDATE_CART_ITEM,
+  payload: {
+    id: string
+    quantity: number
+  }
+}
+
+export type CartActionTypes = AddToCart | DeleteFromCart | DisplayCartPreview | ChangeQuantity | UpdateCartItem
