@@ -67,7 +67,7 @@ const Product: React.FC<ProductProps> = (props) => {
             {oldPrice && <OldPrice oldPrice={oldPrice}/>}
           </Row>
           <Row>
-            <Quantity quantity={setQuantity}/>
+            <Quantity quantity={setQuantity} inCart={inCart} id={id}/>
             <AddToCartBtn onAddToCartClick={handleOnAddToCartClick} inCart={inCart}
                           onUpdateClick={handleOnUpdateClick}/>
           </Row>
