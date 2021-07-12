@@ -12,7 +12,7 @@ type QuantityProps = {
 
 const Quantity: React.FC<QuantityProps> = (props) => {
   const [unit, setUnit] = useState<boolean>(true);
-  const [value, setValue] = useState<number>(1);
+  const [value, setValue] = useState<number | null>(null);
   const {inCart, quantity, id} = props;
   const cartItemQuantity: ICheckoutProduct[] = useSelector((state: RootState) => state.cartReducer.cartList);
 
@@ -38,6 +38,9 @@ const Quantity: React.FC<QuantityProps> = (props) => {
    * @author Ovindu
    */
   useEffect(() => {
+    if (!value) {
+      return
+    }
     quantity(value);
   }, [value]);
 
@@ -67,7 +70,7 @@ const Quantity: React.FC<QuantityProps> = (props) => {
               type="number"
               min="1"
               onChange={handleOnChange}
-              value={value}
+              value={value ? value : 1}
           />
           <InputGroup.Text id="basic-addon1" onClick={() => handleChangeUnit()}>{unit ? "kg" : "g"}</InputGroup.Text>
         </InputGroup>
