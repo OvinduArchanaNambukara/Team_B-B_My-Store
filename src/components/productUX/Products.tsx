@@ -6,7 +6,7 @@ import {useSelector} from "react-redux";
 import {RootState} from "../../store/reducers";
 
 const Products: React.FC = () => {
-  const productList = useSelector((state: RootState) => state.productReducer.vegetables);
+  const productList: IProducts[] = useSelector((state: RootState) => state.productReducer.grocery);
 
   return (
       <Container>
@@ -19,7 +19,6 @@ const Products: React.FC = () => {
         </Row>
       </Container>
   )
-
 }
 
 export default Products;

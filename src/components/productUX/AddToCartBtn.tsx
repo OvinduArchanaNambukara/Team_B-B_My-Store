@@ -1,24 +1,22 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Button, Col} from "react-bootstrap";
 
 type AddToCartButtonProps = {
   onClick: () => void
+  inCart: boolean
 }
 
 const AddToCartBtn: React.FC<AddToCartButtonProps> = (props) => {
-
-  const [isUpdateBtn, setIsUpdateBtn] = useState<boolean>(false);
+  const {onClick, inCart} = props;
 
   const handleClick = () => {
-    setIsUpdateBtn(true);
-    props.onClick();
+    onClick();
   }
-
 
   return (
       <Col xs={12} md={6} className='pl-md-2 pl-3  text-center'>
-        <Button onClick={() => handleClick()} variant={isUpdateBtn ? "outline-secondary" : "success"}
-                className='float-md-right px-md-1 px-3 addToCartBtn'>{isUpdateBtn ? "Update" : "Add To Cart"}</Button>
+        <Button onClick={() => handleClick()} variant={inCart ? "outline-secondary" : "success"}
+                className='float-md-right px-md-1 px-3 addToCartBtn'>{inCart ? "Update" : "Add To Cart"}</Button>
       </Col>
   )
 }

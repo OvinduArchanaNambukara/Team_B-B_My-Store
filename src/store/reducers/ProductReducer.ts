@@ -1,23 +1,35 @@
-import {IProducts} from "../../types/types";
+import {IProduct, IProducts} from "../../types/types";
 import {ShopProducts} from "../../constants/constants";
-import {AddProductsTypes} from "../../types/store/AddProductTypes";
-import {ADD_TO_CART} from "../constants/ProductConstants";
+import {ProductActionTypes} from "../../types/store/ProductActionTypes";
+import {MARK_ADD_TO_CART, MARK_REMOVE_FROM_CART} from "../constants/ProductConstants";
 
 const initialState: storeTypes = {
-  vegetables: ShopProducts
+  grocery: ShopProducts
 }
 
 export interface storeTypes {
-  vegetables: IProducts[];
+  grocery: IProducts[];
 }
 
-export const ProductReducer = (state: storeTypes = initialState, action: AddProductsTypes) => {
+export const ProductReducer = (state: storeTypes = initialState, action: ProductActionTypes) => {
   switch (action.type) {
-    case ADD_TO_CART:
+    case MARK_ADD_TO_CART: {
+      const tempList: IProducts[] = [...state.grocery];
+      tempList[0].productDetails[action.payload.index].inCart = action.payload.value;
       return {
         ...state,
-        vegetable: [...state.vegetables, action.payload]
+        grocery: tempList
       }
+    }
+    case MARK_REMOVE_FROM_CART: {
+      const tempList: IProducts[] = [...state.grocery];
+      tempList[0].productDetails.map<void>((value: IProduct) => {
+        if (value.product.id === action.payload.id) {
+          value.inCart = action.payload.value;
+        }
+      })
+      return {...state, grocery: tempList}
+    }
     default:
       return state;
   }

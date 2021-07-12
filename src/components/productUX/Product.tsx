@@ -8,18 +8,22 @@ import Quantity from "./Quantity";
 import AddToCartBtn from "./AddToCartBtn";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../store/actions/CartActions";
+import {markAddToCart} from "../../store/actions/ProductAction";
 
 type ProductProps = {
   productDetails: IProduct
+  index: number
 }
 
 const Product: React.FC<ProductProps> = (props) => {
   const dispatch = useDispatch();
-  const {name, image, oldPrice, currentPrice} = props.productDetails;
+  const {name, image, oldPrice, currentPrice, id} = props.productDetails.product;
+  const {inCart} = props.productDetails;
   const [quantity, setQuantity] = useState<null | number>(null);
 
   /**
    * create ICheckout Product item and add to redux store cartItems[]
+   * set inCart:true in that product
    * @author Ovindu
    */
   const handleOnClick = () => {
@@ -27,6 +31,7 @@ const Product: React.FC<ProductProps> = (props) => {
       const item: ICheckoutProduct = {
         quantity: quantity,
         product: {
+          id: id,
           name: name,
           image: image,
           oldPrice: oldPrice,
@@ -34,6 +39,7 @@ const Product: React.FC<ProductProps> = (props) => {
         }
       }
       dispatch(addToCart(item));
+      dispatch(markAddToCart(props.index, true));
     }
   }
 
@@ -52,7 +58,7 @@ const Product: React.FC<ProductProps> = (props) => {
           </Row>
           <Row>
             <Quantity quantity={setQuantity}/>
-            <AddToCartBtn onClick={handleOnClick}/>
+            <AddToCartBtn onClick={handleOnClick} inCart={inCart}/>
           </Row>
         </div>
       </Col>

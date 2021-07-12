@@ -1,13 +1,14 @@
 import React from "react";
 import {Col, Image, Row} from "react-bootstrap";
 import DeleteIcon from "../common/DeleteIcon";
-import {IProduct} from "../../types/types";
+import {Item} from "../../types/types";
 import QuantityToggle from "../common/QuantityToggle";
 import {useDispatch} from "react-redux";
 import {deleteFromCart} from "../../store/actions/CartActions";
+import {markRemoveFromCart} from "../../store/actions/ProductAction";
 
 type CartItemProps = {
-  product: IProduct
+  product: Item
   quantity: number
   index: number
 }
@@ -16,8 +17,14 @@ const CartItem: React.FC<CartItemProps> = (props) => {
   const {product, quantity, index} = props;
   const dispatch = useDispatch();
 
+  /**
+   * on click delete that item in redux store cartItem[]
+   * on click set inCart: false in redux store grocery[]
+   * @author Ovindu
+   */
   const handleOnDeleteClick = () => {
     dispatch(deleteFromCart(index));
+    dispatch(markRemoveFromCart(product.id, false));
   }
 
   return (

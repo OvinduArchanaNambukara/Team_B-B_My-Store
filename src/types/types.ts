@@ -20,19 +20,25 @@ export interface IProducts {
   productDetails: IProduct[]
 }
 
-export interface IProduct {
+export interface Item {
+  id: string
   name: string
   image: string
   currentPrice: number
   oldPrice: number | null
 }
 
+export interface IProduct {
+  product: Item,
+  inCart: boolean
+}
+
 export interface ICartItem {
-  product: IProduct
+  product: Item
   quantity: number
 }
 
 export interface ICheckoutProduct {
   quantity: number
-  product: IProduct
+  product: Item
 }
