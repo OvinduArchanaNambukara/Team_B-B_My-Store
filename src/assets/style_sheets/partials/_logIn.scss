@@ -27,6 +27,7 @@
 
       .form-control {
         border: 2px solid $form-check-border-color;
+        font-size: .9em;
       }
 
       button {
@@ -38,5 +39,11 @@
 
   .login-bottom {
     font-weight: 500;
+  }
+}
+
+@media (max-width: $layout-breakpoint-xs) {
+  .login {
+    font-size: .8em;
   }
 }
