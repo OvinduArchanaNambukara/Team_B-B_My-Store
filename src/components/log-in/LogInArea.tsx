@@ -6,7 +6,7 @@ import LogInBottom from "./LogInBottom";
 
 const LogInArea: React.FC = () => {
   return (
-      <Col xs={6} className='pl-5'>
+      <Col xs={12} md={6} className='pl-md-5'>
         <LogInTitle/>
         <LogInForm/>
         <LogInBottom/>

@@ -4,7 +4,7 @@ import LogInBanner from "../../assets/images/log-in/logInCart.png";
 
 const LogInImg: React.FC = () => {
   return (
-      <Col xs={6}>
+      <Col xs={12} md={6}>
         <Image alt='logInCart' src={LogInBanner} fluid={true}/>
       </Col>
   );
