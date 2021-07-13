@@ -2,6 +2,7 @@ import React, {lazy, Suspense} from "react";
 import {Route, Switch, useLocation} from "react-router-dom";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import Loading from "./components/loading/Loading";
+import LogInUX from "./components/log-in/LogInUX";
 
 const Welcome = lazy(() => import("./components/welcome/Welcome"));
 const Checkout = lazy(() => import("./components/cart-table/Checkout"));
@@ -18,13 +19,16 @@ const Routes: React.FC = () => {
           <Suspense fallback={<Loading/>}>
             <Switch location={location}>
               <Route path='/checkout'>
-                  <Checkout/>
+                <Checkout/>
+              </Route>
+              <Route path='/login'>
+                <LogInUX/>
               </Route>
               <Route path='/'>
-                  <Welcome/>
-                  <SearchBar/>
-                  <CategoryArea/>
-                  <Products/>
+                <Welcome/>
+                <SearchBar/>
+                <CategoryArea/>
+                <Products/>
               </Route>
             </Switch>
           </Suspense>
