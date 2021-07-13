@@ -1,6 +1,6 @@
 import {IProduct, IProducts} from "../../types/types";
 import {ShopProducts} from "../../constants/constants";
-import {ProductActionTypes} from "../../types/store/ProductActionTypes";
+import {ProductActionTypes} from "../types/ProductActionTypes";
 import {MARK_ADD_TO_CART, MARK_REMOVE_FROM_CART} from "../constants/ProductConstants";
 
 const initialState: storeTypes = {

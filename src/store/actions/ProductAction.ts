@@ -1,4 +1,4 @@
-import {MarkAddToCart, MarkRemoveFromCart} from "../../types/store/ProductActionTypes";
+import {MarkAddToCart, MarkRemoveFromCart} from "../types/ProductActionTypes";
 import {MARK_ADD_TO_CART, MARK_REMOVE_FROM_CART} from "../constants/ProductConstants";
 
 export const markAddToCart = (index: number, value: boolean): MarkAddToCart => {

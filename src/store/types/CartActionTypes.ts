@@ -3,8 +3,8 @@ import {
   CHANGE_QUANTITY,
   DELETE_FROM_CART,
   DISPLAY_CART_PREVIEW, UPDATE_CART_ITEM
-} from "../../store/constants/CartConstants";
-import {ICheckoutProduct} from "../types";
+} from "../constants/CartConstants";
+import {ICheckoutProduct} from "../../types/types";
 
 export interface AddToCart {
   type: typeof ADD_TO_CART,
