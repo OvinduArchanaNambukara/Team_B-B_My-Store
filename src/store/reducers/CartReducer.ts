@@ -1,5 +1,5 @@
 import {ICheckoutProduct} from "../../types/types";
-import {CartActionTypes} from "../../types/store/CartActionTypes";
+import {CartActionTypes} from "../types/CartActionTypes";
 import {
   ADD_TO_CART,
   CHANGE_QUANTITY,

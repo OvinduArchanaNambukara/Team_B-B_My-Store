@@ -1,11 +1,16 @@
 import React, {useState} from "react";
 import {Button, Col, Form, FormControl, Row} from "react-bootstrap";
+import {useDispatch} from "react-redux";
+import {setLogInButtonStatus} from "../../store/actions/StatusActions";
+import {useHistory} from "react-router-dom";
 
 const LogInForm: React.FC = () => {
   const [isFormValidated, setIsFormValidated] = useState<boolean>(false);
   const [email, setEmail] = useState<string | null>(null);
   const [password, setPassword] = useState<string | null>(null);
   const [check, setCheck] = useState<boolean | null>(null);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,6 +19,8 @@ const LogInForm: React.FC = () => {
       setIsFormValidated(true);
     } else {
       alert('Log in successful');
+      dispatch(setLogInButtonStatus(true));
+      history.push('/');
     }
   }
 

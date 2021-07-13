@@ -1,4 +1,4 @@
-import {MARK_ADD_TO_CART, MARK_REMOVE_FROM_CART} from "../../store/constants/ProductConstants";
+import {MARK_ADD_TO_CART, MARK_REMOVE_FROM_CART} from "../constants/ProductConstants";
 
 export interface MarkAddToCart {
   type: typeof MARK_ADD_TO_CART,

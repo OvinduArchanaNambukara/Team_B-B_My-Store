@@ -5,7 +5,7 @@ import {
   DeleteFromCart,
   DisplayCartPreview,
   UpdateCartItem
-} from "../../types/store/CartActionTypes";
+} from "../types/CartActionTypes";
 import {
   ADD_TO_CART,
   CHANGE_QUANTITY,
