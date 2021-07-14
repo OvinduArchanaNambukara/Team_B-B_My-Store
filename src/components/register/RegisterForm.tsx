@@ -100,7 +100,7 @@ const RegisterForm: React.FC = () => {
                   <p className="font-weight-bold">Enter first name</p>
                 </FormControl.Feedback>
               </Form.Group>
-              <Form.Group controlId="formBasicEmail" as={Col}>
+              <Form.Group controlId="formBasicEmail" as={Col} className='pl-0'>
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control type="text" placeholder="Enter Last Name" required onChange={handleOnLastNameChange}
                               value={lastName ? lastName : ''}/>
