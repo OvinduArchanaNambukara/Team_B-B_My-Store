@@ -45,5 +45,13 @@
 @media (max-width: $layout-breakpoint-xs) {
   .register {
     font-size: .8em;
+
+    .register-form {
+      form {
+        .form-control {
+          font-size: 1em;
+        }
+      }
+    }
   }
 }
