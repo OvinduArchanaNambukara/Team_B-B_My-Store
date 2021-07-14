@@ -92,20 +92,20 @@ const RegisterForm: React.FC = () => {
         <Col xs={12}>
           <Form noValidate validated={isFormValidated} onSubmit={handleOnSubmit} className='pb-3'>
             <Row>
-              <Form.Group controlId="formBasicEmail" as={Col} className='mb-0'>
+              <Form.Group controlId="formBasicEmail" as={Col}>
                 <Form.Label>First Name</Form.Label>
                 <Form.Control type="text" placeholder="Enter First Name" required onChange={handleOnFirstNameChange}
                               value={firstName ? firstName : ''}/>
                 <FormControl.Feedback type="invalid">
-                  <p className="font-weight-bold">Enter first name</p>
+                  <p className="font-weight-bold mb-0">Enter first name</p>
                 </FormControl.Feedback>
               </Form.Group>
-              <Form.Group controlId="formBasicEmail" as={Col} className='pl-0 mb-0'>
+              <Form.Group controlId="formBasicEmail" as={Col} className='pl-0'>
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control type="text" placeholder="Enter Last Name" required onChange={handleOnLastNameChange}
                               value={lastName ? lastName : ''}/>
                 <FormControl.Feedback type="invalid">
-                  <p className="font-weight-bold">Enter last name</p>
+                  <p className="font-weight-bold mb-0">Enter last name</p>
                 </FormControl.Feedback>
               </Form.Group>
             </Row>
