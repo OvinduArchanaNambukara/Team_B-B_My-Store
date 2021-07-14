@@ -9,6 +9,7 @@ const SearchBar = lazy(() => import("./components/search-bar/SearchBar"));
 const CategoryArea = lazy(() => import("./components/category-area/CategoryArea"));
 const Products = lazy(() => import("./components/productUX/Products"));
 const LogInUX = lazy(() => import("./components/log-in/LogInUX"));
+const RegisterUX = lazy(() => import("./components/register/RegisterUX"));
 
 const Routes: React.FC = () => {
   let location = useLocation();
@@ -23,6 +24,9 @@ const Routes: React.FC = () => {
               </Route>
               <Route path='/login'>
                 <LogInUX/>
+              </Route>
+              <Route path='/register'>
+                <RegisterUX/>
               </Route>
               <Route path='/'>
                 <Welcome/>

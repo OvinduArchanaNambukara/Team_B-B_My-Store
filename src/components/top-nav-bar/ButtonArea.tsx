@@ -11,7 +11,7 @@ const ButtonArea: React.FC = () => {
   const history = useHistory();
 
   /**
-   * when log out click set route to / and set log in button status false in redux store
+   * when log out click set route to /  path and set log in button status false in redux store
    * @author Ovindu
    */
   const handleOnLogOutClick = () => {
@@ -20,18 +20,26 @@ const ButtonArea: React.FC = () => {
   }
 
   /**
-   * when click set Route to / location
+   * when click set Route to / path
    * @author Ovindu
    */
   const handleOnLogInClick = () => {
     history.push('/login');
   }
 
+  /**
+   * when click route to /register path
+   * @author Ovindu
+   */
+  const handleOnRegisterClick = () => {
+    history.push('/register');
+  }
+
   return (
       <React.Fragment>
         {
           !isLogIn &&
-          <Button className='my-md-2 py-md-0'>Register</Button>
+          <Button className='my-md-2 py-md-0' onClick={handleOnRegisterClick}>Register</Button>
         }
         {
           !isLogIn &&
