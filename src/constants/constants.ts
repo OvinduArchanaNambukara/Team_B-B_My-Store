@@ -34,11 +34,7 @@ export const ProductList: IProduct[] = [
     inCart: false
   },
   {
-    product: {id: "0007", name: "Carrot", image: CarrotImg, currentPrice: 75, oldPrice: 85},
-    inCart: false
-  },
-  {
-    product: {id: "0008", name: "Egg Plant", image: EggplantImg, currentPrice: 75, oldPrice: 85},
+    product: {id: "0007", name: "Egg Plant", image: EggplantImg, currentPrice: 75, oldPrice: 85},
     inCart: false
   },
 ];
