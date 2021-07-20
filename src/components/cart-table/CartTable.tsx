@@ -7,7 +7,7 @@ import CartImage from "./CartImage";
 import UnitPrice from "./UnitPrice";
 import {ICheckoutProduct} from "../../types/types";
 import {useSelector} from "react-redux";
-import {RootState} from "../../store/reducers";
+import {RootState} from "../../store/reducers/RootReducer";
 
 type CartTableProps = {
   onGetTotal: (total: number) => void
