@@ -1,6 +1,6 @@
 import React from "react";
 import {FiTrash} from "react-icons/all";
-import {deleteIconColor} from "../../constants/constants";
+import {deleteIconColor} from "../../custom-styles/deleteIconStyle";
 
 
 type DeleteIconProps = {

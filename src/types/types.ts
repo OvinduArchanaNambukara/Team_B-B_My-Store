@@ -1,5 +1,10 @@
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 
+export interface categoryTypes {
+  image: string
+  name: string
+}
+
 export interface ISocialLink {
   icon: IconProp
   path: string

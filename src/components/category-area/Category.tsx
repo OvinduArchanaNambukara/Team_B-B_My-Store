@@ -1,6 +1,7 @@
-import React, {CSSProperties, useState} from "react";
+import React, {CSSProperties, useEffect, useState} from "react";
 import {Col, Image} from "react-bootstrap";
 import {categoryClickStyles} from "../../custom-styles/custom-category-click-styles";
+import {useHistory, useLocation, useRouteMatch} from "react-router-dom";
 
 type CategoryProps = {
   name: string,
@@ -9,27 +10,34 @@ type CategoryProps = {
 
 const Category: React.FC<CategoryProps> = (props) => {
   const [styles, setStyles] = useState<CSSProperties>({});
-  const [isClicked, setIsClicked] = useState(true);
+  const {name, image} = props;
+  const history = useHistory();
+  const {url, path} = useRouteMatch();
+  const {pathname} = useLocation();
 
   /**
-   * when clicked set custom styles to div
-   * @author Ovindu
+   * according to current path change category style
    */
-  const handleOnClick = () => {
-    if (isClicked) {
+  useEffect(() => {
+    if (pathname === `${path}/${name}`) {
       setStyles(categoryClickStyles);
-      setIsClicked(false);
     } else {
       setStyles({});
-      setIsClicked(true);
     }
+  }, [pathname])
+
+  /**
+   *When click change location to nested route
+   */
+  const handleOnClick = () => {
+    history.push(`${url}/${name}`);
   }
 
   return (
       <Col className='category text-center mt-2 px-1 px-md-2' xs={2}>
         <div onClick={handleOnClick} style={styles}>
-          <Image src={props.image} alt={props.name} fluid={true}/>
-          <p className='m-1'>{props.name}</p>
+          <Image src={image} alt={name} fluid={true}/>
+          <p className='m-1'>{name}</p>
         </div>
       </Col>
   );

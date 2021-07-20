@@ -6,7 +6,7 @@ import EmptyCartPreview from "./EmptyCartPreview";
 import CheckOutButton from "../common/CheckOutButton";
 import CartIcon from "./CartIcon";
 import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../store/reducers";
+import {RootState} from "../../store/reducers/RootReducer";
 import {ICheckoutProduct} from "../../types/types";
 import {displayCartPreview} from "../../store/actions/CartActions";
 
