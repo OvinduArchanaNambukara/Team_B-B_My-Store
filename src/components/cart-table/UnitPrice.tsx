@@ -1,4 +1,5 @@
 import React from "react";
+import NumberFormat from "react-number-format";
 
 type UnitPriceProps = {
     price:number
@@ -9,7 +10,14 @@ const UnitPrice:React.FC<UnitPriceProps> = (props) => {
     const {price} = props;
 
     return(
-        <label className='mb-0'>Rs.{price}.00</label>
+        <label>
+            <NumberFormat value={price}
+                          thousandSeparator={true}
+                          displayType='text'
+                          prefix={'Rs. '}
+                          decimalScale={2}
+                          fixedDecimalScale={true}/>
+        </label>
     )
 }
 

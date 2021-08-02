@@ -45,6 +45,7 @@ const Routes: React.FC = () => {
               </Route>
               <Route path='/checkout'>
                 <Checkout/>
+                <CashOnDelivery/>
               </Route>
               <Route path='/home'>
                 <Welcome/>
