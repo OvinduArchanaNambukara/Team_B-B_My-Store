@@ -43,7 +43,7 @@ const ChangeShippingAddress:React.FC<ChangeShippingAddressProps> = (props) => {
     return(
         <Row className='mt-3'>
             <Col xs={12}>
-                <Form className='pr-2' noValidate validated={validated}>
+                <Form className='pr-0' noValidate validated={validated}>
                     <Form.Group controlId="formGridName" className='mb-0'>
                         <Form.Label className='mb-0'>Name*</Form.Label>
                         <Form.Control

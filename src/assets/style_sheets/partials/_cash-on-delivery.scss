@@ -1,6 +1,10 @@
 @import "variables";
 
 .cashOnDelivery {
+  svg {
+    cursor: pointer;
+  }
+
   .billing-info {
     .form-group {
       .form-label {
@@ -109,16 +113,25 @@
       font-size: .8em;
     }
   }
-  .payment-methods{
-    h5{
+
+  .payment-methods {
+
+    h5 {
       font-size: 1em;
     }
   }
-  .payment-method{
+
+  .payment-method:hover {
+    background-color: $category-item-hover-color;
+  }
+
+  .payment-method {
+
     border-radius: .4em;
   }
-  .order-btn{
-    button{
+
+  .order-btn {
+    button {
       width: 7em;
     }
   }

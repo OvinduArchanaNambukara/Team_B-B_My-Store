@@ -3,7 +3,7 @@ import {Button, Col, Row} from "react-bootstrap";
 
 const SignInArea:React.FC = () => {
     return(
-        <Row className='border signInArea pl-0 pl-md-3 ml-0 mr-2 py-2 mb-1'>
+        <Row className='border signInArea pl-0 pl-md-3 ml-0 mr-0 py-2 mb-1'>
             <Col xs={6} className='pt-3 pl-lg-0 pr-0'>
                 <p className='pl-1'>Already have an account?</p>
             </Col>
