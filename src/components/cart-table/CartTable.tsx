@@ -1,5 +1,5 @@
 import React from "react";
-import BootstrapTable from "react-bootstrap-table-next";
+import BootstrapTable, {PaginationOptions} from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import Quantity from "./Quantity";
 import DeleteIcon from "./DeleteIcon";
@@ -7,6 +7,7 @@ import CartImage from "./CartImage";
 import UnitPrice from "./UnitPrice";
 import {ICheckoutProduct} from "../../types/types";
 import {useSelector} from "react-redux";
+import EmptyCartPreview from "../cart-preview/EmptyCartPreview";
 import {RootState} from "../../store/reducers/RootReducer";
 
 type CartTableProps = {
@@ -36,6 +37,10 @@ const CartTable: React.FC<CartTableProps> = (props) => {
 
   onGetTotal(total);
 
+  const noDataIndicator = () => {
+    return <EmptyCartPreview/>
+  }
+
   const columns = [
     {dataField: 'id', text: '#'},
     {dataField: 'item', text: 'Item'},
@@ -52,11 +57,9 @@ const CartTable: React.FC<CartTableProps> = (props) => {
   </span>
   );
 
-  const options = {
-    classes: 'pagination',
+  const options:PaginationOptions = {
     paginationSize: 4,
     pageStartIndex: 1,
-    color: '#4caf50',
     firstPageText: 'First',
     prePageText: 'Back',
     nextPageText: 'Next',
@@ -67,7 +70,6 @@ const CartTable: React.FC<CartTableProps> = (props) => {
     lastPageTitle: 'Last page',
     showTotal: true,
     paginationTotalRenderer: customTotal,
-    disablePageTitle: true,
     sizePerPageList: [{
       text: '5', value: 5
     }, {
@@ -84,6 +86,7 @@ const CartTable: React.FC<CartTableProps> = (props) => {
           keyField='id'
           data={products}
           columns={columns}
+          noDataIndication={noDataIndicator}
           wrapperClasses='table-responsive overflow-x'
           classes='custom-table item-table'
           rowClasses='text-wrap'
