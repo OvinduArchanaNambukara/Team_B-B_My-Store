@@ -27,7 +27,7 @@ const Checkout: React.FC = () => {
                             </Row>
                         </Col>
                     </Row>
-                    <Card className='ml-md-4 ml-0 px-3 py-3 my-3 mr-2'>
+                    <Card className='mx-md-4 ml-0 px-3 py-3 my-3 mr-0'>
                         <CartHeader/>
                         <Card.Body className='px-0 px-xl-5 px-md-0'>
                             <CartTable onGetTotal={handleOnGetTotal}/>

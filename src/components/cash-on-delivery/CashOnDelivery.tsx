@@ -89,11 +89,11 @@ const CashOnDelivery: React.FC = () => {
         <Container className='cashOnDelivery' fluid={true}>
             <Row className='mt-1 mx-0 justify-content-center'>
                 <Col xl={10} xs={12} className='px-0'>
-                    <Row className='pl-md-4'>
+                    <Row className='pl-md-4 pr-md-4'>
                         <Col lg={{span: 7, offset: 5}} xs={12}>
                             <SignInArea/>
                             <Row>
-                                <Col xs={12} className='pr-4'>
+                                <Col xs={12} className='px-3'>
                                     <Card>
                                         <Card.Header className='pb-0'>
                                             <Card.Title>Shipping and Billing Address</Card.Title>
@@ -276,11 +276,11 @@ const CashOnDelivery: React.FC = () => {
                                 />
                                 {changeShippingAddress && <ChangeShippingAddress validated={isFormValidated}/>}
                             </div>
-                            <Row className='mt-3 text-area pl-3 pr-4'>
+                            <Row className='mt-3 text-area px-3'>
                                 <Col xs={12} className='pl-0'>
                                     <p>Add Delivery Instructions (Optional)</p>
                                 </Col>
-                                <Form.Control as='textarea' rows={4}/>
+                                <Form.Control as='textarea' rows={4} className=''/>
                             </Row>
                             <Row className='payment-methods mt-3'>
                                 <Col xs={12}>
