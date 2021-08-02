@@ -7,7 +7,7 @@ const Welcome: React.FC = () => {
       <Container fluid={true}>
         <Row className="welcome">
           <Col className="p-0">
-            <Image src={BannerImage} fluid={true} className="image"/>
+            <Image src={BannerImage} fluid={true} className="image" loading={"lazy"}/>
           </Col>
           <Col xs={{span: 7, offset: 5}} md={{span: 6, offset: 6}} className="banner-text">
             <span className="regular">100% Healthy & Affordable</span><br/>
