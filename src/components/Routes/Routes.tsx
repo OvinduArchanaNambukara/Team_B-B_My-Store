@@ -10,6 +10,7 @@ const LogInUX = lazy(() => import("../log-in/LogInUX"));
 const RegisterUX = lazy(() => import("../register/RegisterUX"));
 const ProductRoutes = lazy(() => import("../Routes/ProductRoutes"));
 const Checkout = lazy(() => import("../cart-table/Checkout"));
+const CashOnDelivery = lazy(() => import("../cash-on-delivery/CashOnDelivery"));
 
 const Routes: React.FC = () => {
   let location = useLocation();
