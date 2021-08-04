@@ -10,6 +10,7 @@ import {
   MARK_ADD_TO_CART,
   MARK_REMOVE_FROM_CART
 } from "../constants/ProductConstants";
+import axios, {AxiosResponse} from "axios";
 
 const initialState: storeTypes = {
   grocery: [],
@@ -31,6 +32,21 @@ export interface storeTypes {
   meat: IProducts[]
 }
 
+const genenerateUrl = (key: string): string => {
+  let keyPath: string = '';
+  axios.post('/getImage',
+      {
+        name: key
+      }
+  ).then((response: AxiosResponse) => {
+    console.log(response.data.name);
+    keyPath = key;
+  }).catch((error) => {
+    console.log(error);
+  });
+  return key;
+}
+
 const addToList = (arr: QueryItem) => {
   let products = arr.products.map((value): IProduct => {
     return {
@@ -40,7 +56,7 @@ const addToList = (arr: QueryItem) => {
         id: value._id,
         currentPrice: value.current_price,
         oldPrice: value.old_price,
-        image: value.image
+        image: genenerateUrl(value.key)
       }
     }
   });
@@ -71,7 +87,6 @@ export const ProductReducer = (state: storeTypes = initialState, action: Product
           return;
         });
       });
-
       return {
         ...state,
         grocery: grocery, pharmacy: pharmacy, electronic: electronic, food: food
