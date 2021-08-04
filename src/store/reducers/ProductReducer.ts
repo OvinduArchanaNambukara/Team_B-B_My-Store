@@ -1,21 +1,24 @@
-import {IProduct, IProducts} from "../../types/types";
+import {IProduct, IProducts, QueryItem} from "../../types/types";
 import {ProductActionTypes} from "../types/ProductActionTypes";
-import {MARK_ADD_TO_CART, MARK_REMOVE_FROM_CART} from "../constants/ProductConstants";
-import {FruitProducts} from "../../constants/fruitsList";
-import {FoodProducts} from "../../constants/foodList";
-import {ElectronicProducts} from "../../constants/electronic";
-import {PharmacyProducts} from "../../constants/pharmacyList";
-import {VegetableProducts} from "../../constants/vegetableList";
-import {MeatProducts} from "../../constants/meatList";
+import {
+  ADD_ELECTRONICS,
+  ADD_FOOD,
+  ADD_FRUITS,
+  ADD_MEAT,
+  ADD_PHARMACY,
+  ADD_VEGETABLES,
+  MARK_ADD_TO_CART,
+  MARK_REMOVE_FROM_CART
+} from "../constants/ProductConstants";
 
 const initialState: storeTypes = {
   grocery: [],
-  food: [FoodProducts],
-  electronic: [ElectronicProducts],
-  pharmacy: [PharmacyProducts],
-  vegetables: [VegetableProducts],
-  meat: [MeatProducts],
-  fruits: [FruitProducts]
+  food: [],
+  electronic: [],
+  pharmacy: [],
+  vegetables: [],
+  meat: [],
+  fruits: []
 }
 
 export interface storeTypes {
@@ -26,6 +29,28 @@ export interface storeTypes {
   vegetables: IProducts[]
   fruits: IProducts[]
   meat: IProducts[]
+}
+
+const addToList = (arr: QueryItem) => {
+  let products = arr.products.map((value): IProduct => {
+    return {
+      inCart: false,
+      product: {
+        name: value.name,
+        id: value._id,
+        currentPrice: value.current_price,
+        oldPrice: value.old_price,
+        image: value.image
+      }
+    }
+  });
+  let productList: IProducts[] = [
+    {
+      category: arr.category_name,
+      productDetails: products
+    }
+  ];
+  return productList;
 }
 
 export const ProductReducer = (state: storeTypes = initialState, action: ProductActionTypes) => {
@@ -74,8 +99,52 @@ export const ProductReducer = (state: storeTypes = initialState, action: Product
         grocery: grocery, food: food, electronic: electronic, pharmacy: pharmacy
       }
     }
+    case ADD_VEGETABLES: {
+      const list = addToList(action.payload.getVegetableProducts);
+      return {
+        ...state,
+        vegetables: list
+      }
+    }
+    case ADD_ELECTRONICS: {
+      const list = addToList(action.payload.getElectronicProducts);
+      return {
+        ...state,
+        electronic: list
+      }
+    }
+    case ADD_FOOD: {
+      const list = addToList(action.payload.getFoodProducts);
+      return {
+        ...state,
+        food: list
+      }
+    }
+    case ADD_MEAT: {
+      const list = addToList(action.payload.getMeatProducts);
+      return {
+        ...state,
+        meat: list
+      }
+    }
+    case ADD_FRUITS: {
+      const list = addToList(action.payload.getFruitProducts);
+      return {
+        ...state,
+        fruits: list
+      }
+    }
+    case ADD_PHARMACY: {
+      const list = addToList(action.payload.getPharmacyProducts);
+      return {
+        ...state,
+        pharmacy: list
+      }
+    }
+
     default:
       return state;
   }
 }
+
 
