@@ -6,6 +6,8 @@ import Products from "./template/Products";
 import {useQuery} from "@apollo/client";
 import {GET_MEAT} from "../../graphql/query";
 import {addMeat} from "../../store/actions/ProductAction";
+import Loading from "../loading/Loading";
+import Error from "../error/Error";
 
 const Meat: React.FC = () => {
   const productList: IProducts[] = useSelector((state: RootState) => state.productReducer.meat);
@@ -20,7 +22,11 @@ const Meat: React.FC = () => {
   }, [data]);
 
   return (
-      <Products productList={productList}/>
+      <React.Fragment>
+        {error && <Error/>}
+        {loading && <Loading/>}
+        {!loading && <Products productList={productList}/>}
+      </React.Fragment>
   );
 }
 

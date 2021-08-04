@@ -6,6 +6,8 @@ import Products from "./template/Products";
 import {useQuery} from "@apollo/client";
 import {GET_VEGETABLES} from "../../graphql/query";
 import {addVegetables} from "../../store/actions/ProductAction";
+import Loading from "../loading/Loading";
+import Error from "../error/Error";
 
 const Vegetables: React.FC = () => {
   const productList: IProducts[] = useSelector((state: RootState) => state.productReducer.vegetables);
@@ -20,7 +22,11 @@ const Vegetables: React.FC = () => {
   }, [data]);
 
   return (
-      <Products productList={productList}/>
+      <React.Fragment>
+        {error && <Error/>}
+        {loading && <Loading/>}
+        {!loading && <Products productList={productList}/>}
+      </React.Fragment>
   );
 }
 
