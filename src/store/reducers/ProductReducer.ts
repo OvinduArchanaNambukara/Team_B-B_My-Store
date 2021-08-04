@@ -9,10 +9,13 @@ import {VegetableProducts} from "../../constants/vegetableList";
 import {MeatProducts} from "../../constants/meatList";
 
 const initialState: storeTypes = {
-  grocery: [VegetableProducts, FruitProducts, MeatProducts],
+  grocery: [],
   food: [FoodProducts],
   electronic: [ElectronicProducts],
-  pharmacy: [PharmacyProducts]
+  pharmacy: [PharmacyProducts],
+  vegetables: [VegetableProducts],
+  meat: [MeatProducts],
+  fruits: [FruitProducts]
 }
 
 export interface storeTypes {
@@ -20,6 +23,9 @@ export interface storeTypes {
   food: IProducts[]
   electronic: IProducts[]
   pharmacy: IProducts[]
+  vegetables: IProducts[]
+  fruits: IProducts[]
+  meat: IProducts[]
 }
 
 export const ProductReducer = (state: storeTypes = initialState, action: ProductActionTypes) => {
