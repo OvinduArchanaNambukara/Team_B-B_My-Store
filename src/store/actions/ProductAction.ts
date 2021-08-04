@@ -1,5 +1,31 @@
-import {MarkAddToCart, MarkRemoveFromCart} from "../types/ProductActionTypes";
-import {MARK_ADD_TO_CART, MARK_REMOVE_FROM_CART} from "../constants/ProductConstants";
+import {
+  AddElectronics,
+  AddFood,
+  AddFruits,
+  AddMeat,
+  AddPharmacy,
+  AddVegetable,
+  MarkAddToCart,
+  MarkRemoveFromCart
+} from "../types/ProductActionTypes";
+import {
+  ADD_ELECTRONICS,
+  ADD_FOOD,
+  ADD_FRUITS,
+  ADD_MEAT,
+  ADD_PHARMACY,
+  ADD_VEGETABLES,
+  MARK_ADD_TO_CART,
+  MARK_REMOVE_FROM_CART
+} from "../constants/ProductConstants";
+import {
+  GetElectronicProducts,
+  GetFoodProducts,
+  GetFruitProducts,
+  GetMeatProducts,
+  GetPharmacyProducts,
+  GetVegetableProducts
+} from "../../types/types";
 
 export const markAddToCart = (id: string): MarkAddToCart => {
   return {
@@ -18,4 +44,44 @@ export const markRemoveFromCart = (id: string, value: boolean): MarkRemoveFromCa
     }
   }
 }
+export const addVegetables = (inventory: GetVegetableProducts): AddVegetable => {
+  return {
+    type: ADD_VEGETABLES,
+    payload: inventory
+  }
+}
+export const addFruits = (inventory: GetFruitProducts): AddFruits => {
+  return {
+    type: ADD_FRUITS,
+    payload: inventory
+  }
+}
+export const addPharmacy = (inventory: GetPharmacyProducts): AddPharmacy => {
+  return {
+    type: ADD_PHARMACY,
+    payload: inventory
+  }
+}
+export const addMeat = (inventory: GetMeatProducts): AddMeat => {
+  return {
+    type: ADD_MEAT,
+    payload: inventory
+  }
+}
+
+export const addFood = (inventory: GetFoodProducts): AddFood => {
+  return {
+    type: ADD_FOOD,
+    payload: inventory
+  }
+}
+
+export const addElectronic = (inventory: GetElectronicProducts): AddElectronics => {
+  return {
+    type: ADD_ELECTRONICS,
+    payload: inventory
+  }
+}
+
+
 

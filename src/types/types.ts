@@ -47,3 +47,41 @@ export interface ICheckoutProduct {
   quantity: number
   product: Item
 }
+
+export interface QueryItem {
+  category_name: string
+  products: {
+    _id: string
+    current_price: number
+    old_price: number
+    key: string
+    image: string
+    name: string
+  }[]
+}
+
+export interface GetFoodProducts {
+  getFoodProducts: QueryItem
+}
+
+export interface GetElectronicProducts {
+  getElectronicProducts: QueryItem
+}
+
+export interface GetVegetableProducts {
+  getVegetableProducts: QueryItem
+}
+
+export interface GetMeatProducts {
+  getMeatProducts: QueryItem
+}
+
+export interface GetFruitProducts {
+  getFruitProducts: QueryItem
+}
+
+export interface GetPharmacyProducts {
+  getPharmacyProducts: QueryItem
+}
+
+
