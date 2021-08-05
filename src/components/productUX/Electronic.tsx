@@ -8,6 +8,7 @@ import {GET_ELECTRONICS} from "../../graphql/query";
 import {addElectronic} from "../../store/actions/ProductAction";
 import Loading from "../loading/Loading";
 import Error from "../error/Error";
+import {processData} from "../../Func/Functions";
 
 const Electronic: React.FC = () => {
   const productList: IProducts[] = useSelector((state: RootState) => state.productReducer.electronic);
@@ -18,8 +19,9 @@ const Electronic: React.FC = () => {
     if (!data) {
       return
     }
-    dispatch(addElectronic(data));
+    processData(data.getElectronicProducts).then(value => dispatch(addElectronic(value)));
   }, [data]);
+
 
   return (
       <React.Fragment>
