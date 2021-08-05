@@ -3,17 +3,17 @@ import axios from "axios";
 
 export const processData = async (data: QueryItem) => {
   const items: IProduct[] = [];
-  for (const datum of data.products) {
+  for (const product of data.products) {
     const res = await axios.post('/getImage', {
-      name: datum.key
+      key: product.key
     });
     items.push({
       inCart: false,
       product: {
-        name: datum.name,
-        oldPrice: datum.old_price,
-        currentPrice: datum.current_price,
-        id: datum._id,
+        name: product.name,
+        oldPrice: product.old_price,
+        currentPrice: product.current_price,
+        id: product._id,
         image: res.data
       }
     });
