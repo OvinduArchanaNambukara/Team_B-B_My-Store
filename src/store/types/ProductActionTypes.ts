@@ -8,14 +8,7 @@ import {
   MARK_ADD_TO_CART,
   MARK_REMOVE_FROM_CART
 } from "../constants/ProductConstants";
-import {
-  GetElectronicProducts,
-  GetFoodProducts,
-  GetFruitProducts,
-  GetMeatProducts,
-  GetPharmacyProducts,
-  GetVegetableProducts
-} from "../../types/types";
+import {IProducts} from "../../types/types";
 
 export interface MarkAddToCart {
   type: typeof MARK_ADD_TO_CART,
@@ -33,32 +26,32 @@ export interface MarkRemoveFromCart {
 
 export interface AddVegetable {
   type: typeof ADD_VEGETABLES,
-  payload: GetVegetableProducts
+  payload: IProducts[]
 }
 
 export interface AddFruits {
   type: typeof ADD_FRUITS,
-  payload: GetFruitProducts
+  payload: IProducts[]
 }
 
 export interface AddMeat {
   type: typeof ADD_MEAT,
-  payload: GetMeatProducts
+  payload: IProducts[]
 }
 
 export interface AddPharmacy {
   type: typeof ADD_PHARMACY,
-  payload: GetPharmacyProducts
+  payload: IProducts[]
 }
 
 export interface AddFood {
   type: typeof ADD_FOOD,
-  payload: GetFoodProducts
+  payload: IProducts[]
 }
 
 export interface AddElectronics {
   type: typeof ADD_ELECTRONICS,
-  payload: GetElectronicProducts
+  payload: IProducts[]
 }
 
 export type ProductActionTypes =

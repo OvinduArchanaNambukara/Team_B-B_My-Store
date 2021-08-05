@@ -8,6 +8,7 @@ import {GET_MEAT} from "../../graphql/query";
 import {addMeat} from "../../store/actions/ProductAction";
 import Loading from "../loading/Loading";
 import Error from "../error/Error";
+import {processData} from "../../Func/Functions";
 
 const Meat: React.FC = () => {
   const productList: IProducts[] = useSelector((state: RootState) => state.productReducer.meat);
@@ -18,8 +19,9 @@ const Meat: React.FC = () => {
     if (!data) {
       return
     }
-    dispatch(addMeat(data));
+    processData(data.getMeatProducts).then(value => dispatch(addMeat(value)));
   }, [data]);
+
 
   return (
       <React.Fragment>
