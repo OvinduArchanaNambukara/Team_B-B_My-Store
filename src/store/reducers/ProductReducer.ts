@@ -12,7 +12,6 @@ import {
 } from "../constants/ProductConstants";
 
 const initialState: storeTypes = {
-  grocery: [],
   food: [],
   electronic: [],
   pharmacy: [],
@@ -22,7 +21,6 @@ const initialState: storeTypes = {
 }
 
 export interface storeTypes {
-  grocery: IProducts[]
   food: IProducts[]
   electronic: IProducts[]
   pharmacy: IProducts[]
@@ -34,11 +32,13 @@ export interface storeTypes {
 export const ProductReducer = (state: storeTypes = initialState, action: ProductActionTypes) => {
   switch (action.type) {
     case MARK_ADD_TO_CART: {
-      const grocery = state.grocery.slice();
+      const vegetables = state.vegetables.slice();
+      const fruits = state.fruits.slice();
+      const meat = state.meat.slice();
       const food = state.food.slice();
       const electronic = state.electronic.slice();
       const pharmacy = state.pharmacy.slice();
-      const all: IProducts[] = [...grocery, ...food, ...electronic, ...pharmacy];
+      const all: IProducts[] = [...vegetables, ...fruits, ...meat, ...electronic, ...pharmacy, ...food];
 
       all.map((value) => {
         value.productDetails.map((product: IProduct) => {
@@ -51,15 +51,17 @@ export const ProductReducer = (state: storeTypes = initialState, action: Product
       });
       return {
         ...state,
-        grocery: grocery, pharmacy: pharmacy, electronic: electronic, food: food
+        vegetables: vegetables, meat: meat, fruits: fruits, pharmacy: pharmacy, electronic: electronic, food: food
       }
     }
     case MARK_REMOVE_FROM_CART: {
-      const grocery = state.grocery.slice();
+      const vegetables = state.vegetables.slice();
+      const fruits = state.fruits.slice();
+      const meat = state.meat.slice();
       const food = state.food.slice();
       const electronic = state.electronic.slice();
       const pharmacy = state.pharmacy.slice();
-      const all: IProducts[] = [...grocery, ...food, ...electronic, ...pharmacy];
+      const all: IProducts[] = [...vegetables, ...fruits, ...meat, ...electronic, ...pharmacy, ...food];
 
       all.map((value) => {
         value.productDetails.map((product: IProduct) => {
@@ -70,10 +72,9 @@ export const ProductReducer = (state: storeTypes = initialState, action: Product
           return;
         });
       })
-
       return {
         ...state,
-        grocery: grocery, food: food, electronic: electronic, pharmacy: pharmacy
+        vegetables: vegetables, meat: meat, fruits: fruits, pharmacy: pharmacy, electronic: electronic, food: food
       }
     }
     case ADD_VEGETABLES: {

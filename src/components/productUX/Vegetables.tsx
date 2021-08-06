@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {IProducts} from "../../types/types";
+import {GetVegetableProducts, IProducts} from "../../types/types";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store/reducers/RootReducer";
 import Products from "./template/Products";
@@ -12,7 +12,7 @@ import {processData} from "../../Func/Functions";
 
 const Vegetables: React.FC = () => {
   const productList: IProducts[] = useSelector((state: RootState) => state.productReducer.vegetables);
-  const {data, loading, error} = useQuery(GET_VEGETABLES);
+  const {data, loading, error} = useQuery<GetVegetableProducts>(GET_VEGETABLES);
   const dispatch = useDispatch();
 
   useEffect(() => {

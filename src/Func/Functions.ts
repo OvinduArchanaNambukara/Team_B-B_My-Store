@@ -1,14 +1,28 @@
-import {IProduct, IProducts, QueryItem} from "../types/types";
+import {IProduct, IProducts, QueryItem, QueryItems} from "../types/types";
 import axios from "axios";
+import {store} from "../store/reducers/RootReducer";
 
-export const processData = async (data: QueryItem) => {
+const checkInTheCart = (product: QueryItem): boolean => {
+  const cartItemList = store.getState().cartReducer.cartList;
+  if (!cartItemList || cartItemList.length === 0) {
+    return false;
+  }
+  for (const iCheckoutProduct of cartItemList) {
+    if (iCheckoutProduct.product.id === product._id) {
+      return true;
+    }
+  }
+  return false;
+}
+
+export const processData = async (data: QueryItems) => {
   const items: IProduct[] = [];
   for (const product of data.products) {
     const res = await axios.post('/getImage', {
       key: product.key
     });
     items.push({
-      inCart: false,
+      inCart: checkInTheCart(product),
       product: {
         name: product.name,
         oldPrice: product.old_price,
