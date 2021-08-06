@@ -49,39 +49,41 @@ export interface ICheckoutProduct {
 }
 
 export interface QueryItem {
+  _id: string
+  current_price: number
+  old_price: number
+  key: string
+  image: string
+  name: string
+}
+
+export interface QueryItems {
   category_name: string
-  products: {
-    _id: string
-    current_price: number
-    old_price: number
-    key: string
-    image: string
-    name: string
-  }[]
+  products: QueryItem[]
 }
 
 export interface GetFoodProducts {
-  getFoodProducts: QueryItem
+  getFoodProducts: QueryItems
 }
 
 export interface GetElectronicProducts {
-  getElectronicProducts: QueryItem
+  getElectronicProducts: QueryItems
 }
 
 export interface GetVegetableProducts {
-  getVegetableProducts: QueryItem
+  getVegetableProducts: QueryItems
 }
 
 export interface GetMeatProducts {
-  getMeatProducts: QueryItem
+  getMeatProducts: QueryItems
 }
 
 export interface GetFruitProducts {
-  getFruitProducts: QueryItem
+  getFruitProducts: QueryItems
 }
 
 export interface GetPharmacyProducts {
-  getPharmacyProducts: QueryItem
+  getPharmacyProducts: QueryItems
 }
 
 
