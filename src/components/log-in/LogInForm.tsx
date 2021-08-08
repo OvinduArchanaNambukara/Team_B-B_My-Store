@@ -75,7 +75,7 @@ const LogInForm: React.FC = () => {
               <Form.Check type="checkbox" label="Remember Password" onChange={handleOnCheckBtnClick}/>
             </Form.Group>
             <Form.Group className='justify-content-center d-flex'>
-              <Button variant="primary" type="submit" className='px-4'>Log In</Button>
+              <Button variant="primary" type="submit" className='px-4' >Log In</Button>
             </Form.Group>
           </Form>
         </Col>

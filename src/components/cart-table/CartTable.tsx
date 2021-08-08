@@ -78,8 +78,7 @@ const CartTable: React.FC<CartTableProps> = (props) => {
       text: 'All', value: products.length
     }]
   };
-
-
+  
   return (
       <BootstrapTable
           bootstrap4
