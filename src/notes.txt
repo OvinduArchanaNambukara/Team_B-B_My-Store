@@ -1,0 +1,15 @@
+<Select className="category-select" classNamePrefix="select-control"
+                      isSearchable
+                      required
+                      options={categoryOptions}
+                      placeholder={null}
+                      noOptionsMessage={() => ("No options here, Please Create a new Category")}
+                      styles={style}
+                      onChange={(option) => {
+                        if (option) {
+                          setProductCategory(option.value);
+                          setCategoryValidated(false);
+                        }
+                      }}
+                      value={categoryOptions?.filter(option => option.value === productCategory)}
+              />

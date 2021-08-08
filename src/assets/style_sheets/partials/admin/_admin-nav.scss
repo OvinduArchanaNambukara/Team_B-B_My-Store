@@ -1,4 +1,4 @@
-@import "variables";
+@import "../variables";
 
 .navigation {
   width: 100%;
@@ -21,9 +21,14 @@
 
     a {
       font-size: 1em;
-      color: black;
+      font-weight: 500;
+      color: $bottom-nav-font-color;
       margin-left: 1rem;
       margin-right: 1rem;
+    }
+    a:hover {
+      text-decoration: none;
+      color: $logo-color;
     }
 
     .profile {

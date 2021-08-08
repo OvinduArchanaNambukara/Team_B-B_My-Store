@@ -8,8 +8,8 @@ import Routes from "./components/Routes/Routes";
 const Client: React.FC = () => {
   return (
       <Router>
-        <TopNavBar/>
-        <BottomNav/>
+        {/*<TopNavBar/>*/}
+        {/*<BottomNav/>*/}
         <Routes/>
         <Footer/>
       </Router>

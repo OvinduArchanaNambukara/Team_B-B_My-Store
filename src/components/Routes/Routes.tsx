@@ -39,12 +39,14 @@ const Routes: React.FC = () => {
       <CSSTransition classNames='page' timeout={1000} key={key}>
         <Suspense fallback={<Loading/>}>
           <Switch location={location}>
+            <Route path='/admin'>
+              <Admin/>
+            </Route>
             <Route path='/login'>
               <LogInUX/>
             </Route>
             <Route path='/register'>
-              {/*<RegisterUX/>*/}
-              <Admin/>
+              <RegisterUX/>
             </Route>
             <Route path='/checkout'>
               <Checkout/>
@@ -58,9 +60,6 @@ const Routes: React.FC = () => {
             </Route>
             <Route path='/'>
               <Redirect to='/home'/>
-            </Route>
-            <Route path='/admin'>
-
             </Route>
           </Switch>
         </Suspense>
