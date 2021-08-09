@@ -56,3 +56,9 @@ export interface IProductDetails {
   oldPrice?: number
   image: string
 }
+
+export interface IOrderDetails {
+  orderId: string,
+  total: number,
+  date: string
+}
