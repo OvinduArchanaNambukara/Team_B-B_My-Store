@@ -20,6 +20,7 @@ const Product: React.FC<ProductProps> = (props) => {
   const {name, image, oldPrice, currentPrice, id, qty} = props.productDetails.product;
   const {inCart} = props.productDetails;
   const [quantity, setQuantity] = useState<null | number>(null);
+  const [btnStatus, setBtnStatus] = useState<boolean>(false);
 
   /**
    * create ICheckout Product item and add to redux store cartItems[]
@@ -68,9 +69,9 @@ const Product: React.FC<ProductProps> = (props) => {
             {oldPrice && <OldPrice oldPrice={oldPrice}/>}
           </Row>
           <Row>
-            <Quantity quantity={setQuantity} inCart={inCart} id={id} qty={qty}/>
+            <Quantity quantity={setQuantity} inCart={inCart} id={id} qty={qty} addBtnStatus={setBtnStatus}/>
             <AddToCartBtn onAddToCartClick={handleOnAddToCartClick} inCart={inCart}
-                          onUpdateClick={handleOnUpdateClick}/>
+                          onUpdateClick={handleOnUpdateClick} btnStatus={btnStatus}/>
           </Row>
         </div>
       </Col>
