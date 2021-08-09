@@ -28,6 +28,7 @@ export const processData = async (data: QueryItems) => {
         oldPrice: product.old_price,
         currentPrice: product.current_price,
         id: product._id,
+        qty: product.qty,
         image: res.data
       }
     });

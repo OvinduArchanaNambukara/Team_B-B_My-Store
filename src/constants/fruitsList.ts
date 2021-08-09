@@ -7,22 +7,22 @@ import strawBerry from "../assets/images/products/fruits/strawberry.webp";
 
 export const FruitList: IProduct[] = [
   {
-    product: {id: "0071", name: "Apple", image: apple, currentPrice: 75, oldPrice: 85},
+    product: {id: "0071", name: "Apple", image: apple, currentPrice: 75, oldPrice: 85, qty: "Kg"},
     inCart: false
   }, {
-    product: {id: "0072", name: "Banana", image: banana, currentPrice: 35, oldPrice: null},
+    product: {id: "0072", name: "Banana", image: banana, currentPrice: 35, oldPrice: null, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0073", name: "Orange", image: orange, currentPrice: 35, oldPrice: 45},
+    product: {id: "0073", name: "Orange", image: orange, currentPrice: 35, oldPrice: 45, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0074", name: "Papaya", image: papaya, currentPrice: 35, oldPrice: null},
+    product: {id: "0074", name: "Papaya", image: papaya, currentPrice: 35, oldPrice: null, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0075", name: "Straw Berry", image: strawBerry, currentPrice: 35, oldPrice: 45},
+    product: {id: "0075", name: "Straw Berry", image: strawBerry, currentPrice: 35, oldPrice: 45, qty: "Kg"},
     inCart: false
   },
 ];

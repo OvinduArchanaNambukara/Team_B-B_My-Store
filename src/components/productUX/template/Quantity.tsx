@@ -8,12 +8,14 @@ type QuantityProps = {
   quantity: (quantity: number) => void
   inCart: boolean
   id: string
+  qty: string
 }
 
 const Quantity: React.FC<QuantityProps> = (props) => {
   const [unit, setUnit] = useState<boolean>(true);
   const [value, setValue] = useState<number | null>(null);
-  const {inCart, quantity, id} = props;
+  const [min, setMin] = useState<number | null>(null);
+  const {inCart, quantity, id, qty} = props;
   const cartItemQuantity: ICheckoutProduct[] = useSelector((state: RootState) => state.cartReducer.cartList);
 
   const handleChangeUnit = () => {
@@ -55,6 +57,18 @@ const Quantity: React.FC<QuantityProps> = (props) => {
   }, [inCart]);
 
   /**
+   * when quantity type is weight set min value to 250 else num set to 1
+   * @author Ovindu
+   */
+  useEffect(() => {
+    if (qty === "Kg") {
+      setValue(250);
+    } else {
+      setValue(1);
+    }
+  }, []);
+
+  /**
    * When changing quantity, change the value string to number and update the value
    * @param e
    * @author Ovindu
@@ -68,11 +82,12 @@ const Quantity: React.FC<QuantityProps> = (props) => {
         <InputGroup className="mb-3">
           <FormControl
               type="number"
-              min="1"
+              min={(qty === "Kg") ? 250 : 1}
               onChange={handleOnChange}
-              value={value ? value : 1}
+              value={value ? value : ""}
           />
-          <InputGroup.Text id="basic-addon1" onClick={() => handleChangeUnit()}>{unit ? "kg" : "g"}</InputGroup.Text>
+          {(qty === 'Kg') &&
+          <InputGroup.Text id="basic-addon1" onClick={() => handleChangeUnit()}>{unit ? "Kg" : "g"}</InputGroup.Text>}
         </InputGroup>
       </Col>
   )

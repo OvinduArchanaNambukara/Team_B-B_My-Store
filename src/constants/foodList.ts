@@ -9,29 +9,29 @@ import rice from "../assets/images/products/food/Rice.webp";
 
 export const FoodList: IProduct[] = [
   {
-    product: {id: "0101", name: "Burger", image: burger, currentPrice: 75, oldPrice: 85},
+    product: {id: "0101", name: "Burger", image: burger, currentPrice: 75, oldPrice: 85, qty: "Kg"},
     inCart: false
   }, {
-    product: {id: "0102", name: "Cake", image: cake, currentPrice: 35, oldPrice: null},
+    product: {id: "0102", name: "Cake", image: cake, currentPrice: 35, oldPrice: null, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0103", name: "Ice-Cream", image: iceCream, currentPrice: 35, oldPrice: 45},
+    product: {id: "0103", name: "Ice-Cream", image: iceCream, currentPrice: 35, oldPrice: 45, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0104", name: "Cup Cake", image: cupCake, currentPrice: 35, oldPrice: null},
+    product: {id: "0104", name: "Cup Cake", image: cupCake, currentPrice: 35, oldPrice: null, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0105", name: "Pie", image: pie, currentPrice: 35, oldPrice: 45},
+    product: {id: "0105", name: "Pie", image: pie, currentPrice: 35, oldPrice: 45, qty: "Kg"},
     inCart: false
   }, {
-    product: {id: "0106", name: "Pizza", image: pizza, currentPrice: 35, oldPrice: null},
+    product: {id: "0106", name: "Pizza", image: pizza, currentPrice: 35, oldPrice: null, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0007", name: "Rice", image: rice, currentPrice: 35, oldPrice: 45},
+    product: {id: "0007", name: "Rice", image: rice, currentPrice: 35, oldPrice: 45, qty: "Kg"},
     inCart: false
   },
 ];
