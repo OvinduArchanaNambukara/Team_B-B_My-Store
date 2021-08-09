@@ -17,7 +17,7 @@ type ProductProps = {
 
 const Product: React.FC<ProductProps> = (props) => {
   const dispatch = useDispatch();
-  const {name, image, oldPrice, currentPrice, id} = props.productDetails.product;
+  const {name, image, oldPrice, currentPrice, id, qty} = props.productDetails.product;
   const {inCart} = props.productDetails;
   const [quantity, setQuantity] = useState<null | number>(null);
 
@@ -35,7 +35,8 @@ const Product: React.FC<ProductProps> = (props) => {
           name: name,
           image: image,
           oldPrice: oldPrice,
-          currentPrice: currentPrice
+          currentPrice: currentPrice,
+          qty: qty
         }
       }
       dispatch(addToCart(item));
@@ -67,7 +68,7 @@ const Product: React.FC<ProductProps> = (props) => {
             {oldPrice && <OldPrice oldPrice={oldPrice}/>}
           </Row>
           <Row>
-            <Quantity quantity={setQuantity} inCart={inCart} id={id}/>
+            <Quantity quantity={setQuantity} inCart={inCart} id={id} qty={qty}/>
             <AddToCartBtn onAddToCartClick={handleOnAddToCartClick} inCart={inCart}
                           onUpdateClick={handleOnUpdateClick}/>
           </Row>

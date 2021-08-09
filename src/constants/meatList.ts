@@ -10,33 +10,33 @@ import tuna from "../assets/images/products/meat/tuna.webp";
 
 export const meatList: IProduct[] = [
   {
-    product: {id: "0061", name: "Bairaha", image: bairaha, currentPrice: 75, oldPrice: 85},
+    product: {id: "0061", name: "Bairaha", image: bairaha, currentPrice: 75, oldPrice: 85, qty: "Kg"},
     inCart: false
   }, {
-    product: {id: "0062", name: "Chicken", image: chickendramstick, currentPrice: 35, oldPrice: null},
+    product: {id: "0062", name: "Chicken", image: chickendramstick, currentPrice: 35, oldPrice: null, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0063", name: "Wings", image: chickenwings, currentPrice: 35, oldPrice: 45},
+    product: {id: "0063", name: "Wings", image: chickenwings, currentPrice: 35, oldPrice: 45, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0064", name: "Hurulla", image: hurulla, currentPrice: 35, oldPrice: null},
+    product: {id: "0064", name: "Hurulla", image: hurulla, currentPrice: 35, oldPrice: null, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0065", name: "Linna", image: linna, currentPrice: 35, oldPrice: 45},
+    product: {id: "0065", name: "Linna", image: linna, currentPrice: 35, oldPrice: 45, qty: "Kg"},
     inCart: false
   }, {
-    product: {id: "0082", name: "Prawns", image: prawns, currentPrice: 35, oldPrice: null},
+    product: {id: "0082", name: "Prawns", image: prawns, currentPrice: 35, oldPrice: null, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0083", name: "Paraw", image: paraw, currentPrice: 35, oldPrice: 45},
+    product: {id: "0083", name: "Paraw", image: paraw, currentPrice: 35, oldPrice: 45, qty: "Kg"},
     inCart: false
   },
   {
-    product: {id: "0084", name: "Tuna", image: tuna, currentPrice: 35, oldPrice: null},
+    product: {id: "0084", name: "Tuna", image: tuna, currentPrice: 35, oldPrice: null, qty: "Kg"},
     inCart: false
   },
 ];

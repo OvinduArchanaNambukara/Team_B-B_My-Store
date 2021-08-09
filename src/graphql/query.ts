@@ -11,6 +11,7 @@ export const GET_VEGETABLES = gql`
         name
         image
         key
+        qty
       }
     }
   }
@@ -27,6 +28,7 @@ export const GET_FRUITS = gql`
         name
         image
         key
+        qty
       }
     }
   }
@@ -43,6 +45,7 @@ export const GET_MEAT = gql`
         name
         image
         key
+        qty
       }
     }
   }
@@ -59,6 +62,7 @@ export const GET_PHARMACY = gql`
         name
         image
         key
+        qty
       }
     }
   }
@@ -75,6 +79,7 @@ export const GET_FOOD = gql`
         name
         image
         key
+        qty
       }
     }
   }
@@ -91,6 +96,7 @@ export const GET_ELECTRONICS = gql`
         name
         image
         key
+        qty
       }
     }
   }
