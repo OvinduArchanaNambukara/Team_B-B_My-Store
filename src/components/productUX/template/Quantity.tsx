@@ -9,13 +9,13 @@ type QuantityProps = {
   inCart: boolean
   id: string
   qty: string
+  addBtnStatus: (bool: boolean) => void
 }
 
 const Quantity: React.FC<QuantityProps> = (props) => {
   const [unit, setUnit] = useState<boolean>(true);
   const [value, setValue] = useState<number | null>(null);
-  const [min, setMin] = useState<number | null>(null);
-  const {inCart, quantity, id, qty} = props;
+  const {inCart, quantity, id, qty, addBtnStatus} = props;
   const cartItemQuantity: ICheckoutProduct[] = useSelector((state: RootState) => state.cartReducer.cartList);
 
   const handleChangeUnit = () => {
@@ -75,7 +75,27 @@ const Quantity: React.FC<QuantityProps> = (props) => {
    */
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(parseInt(e.target.value));
+    if (parseInt(e.target.value) < 250 && qty === "Kg" && unit) {
+      addBtnStatus(true);
+    } else {
+      addBtnStatus(false);
+    }
   }
+
+  /**
+   * when quantity is Kg type  value<250 active the buttons and when g type and value<250 disable the button
+   * @author Ovindu
+   */
+  useEffect(() => {
+    if (value === null) {
+      return;
+    }
+    if (value < 250 && unit) {
+      addBtnStatus(true);
+    } else {
+      addBtnStatus(false);
+    }
+  }, [unit]);
 
   return (
       <Col xs={12} md={6} className='pr-md-0 pl-md-3 px-4'>
@@ -85,9 +105,10 @@ const Quantity: React.FC<QuantityProps> = (props) => {
               min={(qty === "Kg") ? 250 : 1}
               onChange={handleOnChange}
               value={value ? value : ""}
+              step={(qty === "Kg") ? 250 : 1}
           />
           {(qty === 'Kg') &&
-          <InputGroup.Text id="basic-addon1" onClick={() => handleChangeUnit()}>{unit ? "Kg" : "g"}</InputGroup.Text>}
+          <InputGroup.Text id="basic-addon1" onClick={() => handleChangeUnit()}>{unit ? "g" : "Kg"}</InputGroup.Text>}
         </InputGroup>
       </Col>
   )
