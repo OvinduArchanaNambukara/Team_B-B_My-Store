@@ -10,7 +10,7 @@ const UnitPrice:React.FC<UnitPriceProps> = (props) => {
     const {price} = props;
 
     return(
-        <label>
+        <label className='mb-0'>
             <NumberFormat value={price}
                           thousandSeparator={true}
                           displayType='text'

@@ -20,7 +20,7 @@ const CartTable: React.FC<CartTableProps> = (props) => {
 
   let total: number = 0;
   const products: any = [];
-  checkedProducts.map((checkedProduct: ICheckoutProduct, index) => {
+  checkedProducts.map((checkedProduct: ICheckoutProduct, index:number) => {
     if (checkedProduct.quantity) {
       total += checkedProduct.product.currentPrice * checkedProduct.quantity;
       products.push({
