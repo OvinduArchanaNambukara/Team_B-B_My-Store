@@ -3,7 +3,7 @@ import {Route, Switch, useLocation, useRouteMatch} from "react-router-dom";
 import Loading from "../loading/Loading";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import AdminNav from "./AdminNav";
-import AddProducts from "./products/AddProducts";
+import AddProducts from "./products/add-products/AddProducts";
 
 const AdminDashboard = lazy(() => import("./dashboard/AdminDashboard"));
 const AdminProducts = lazy(() => import("./products/AdminProducts"));

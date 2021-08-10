@@ -53,7 +53,7 @@ export interface IProductDetails {
   category: string
   price: number
   unit: string
-  oldPrice?: number
+  disPrice: number
   image: string
 }
 

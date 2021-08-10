@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import uploadImage from "../../../assets/images/admin/upload-icon.png";
+import uploadImage from "../../../../assets/images/admin/upload-icon.png";
 // import imageCompression from "browser-image-compression";
 
 

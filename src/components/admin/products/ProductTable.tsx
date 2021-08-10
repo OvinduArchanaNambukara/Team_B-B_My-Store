@@ -13,19 +13,19 @@ import filterFactory, {multiSelectFilter, textFilter} from "react-bootstrap-tabl
 const ProductTable: React.FC = () => {
 
     const allProduct: IProductDetails[] = [
-        {name: "Burger", category: "Food", price: 120, unit: "kg", oldPrice: 20, image: Burger},
-        {name: "Blender", category: "Electronic", price: 1245, unit: "g", oldPrice: 24, image: Blender},
-        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", oldPrice: 45, image: Cotton},
-        {name: "Burger", category: "Food", price: 120, unit: "kg", oldPrice: 20, image: Burger},
-        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", oldPrice: 45, image: Cotton},
-        {name: "Burger", category: "Food", price: 120, unit: "kg", oldPrice: 20, image: Burger},
-        {name: "Blender", category: "Electronic", price: 1245, unit: "g", oldPrice: 24, image: Blender},
-        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", oldPrice: 45, image: Cotton},
-        {name: "Burger", category: "Food", price: 120, unit: "kg", oldPrice: 20, image: Burger},
-        {name: "Blender", category: "Electronic", price: 1245, unit: "g", oldPrice: 24, image: Blender},
-        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", oldPrice: 45, image: Cotton},
-        {name: "Burger", category: "Food", price: 120, unit: "kg", oldPrice: 20, image: Burger},
-        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", oldPrice: 45, image: Cotton}
+        {name: "Burger", category: "Food", price: 120, unit: "kg", disPrice: 20, image: Burger},
+        {name: "Blender", category: "Electronic", price: 1245, unit: "g", disPrice: 24, image: Blender},
+        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", disPrice: 45, image: Cotton},
+        {name: "Burger", category: "Food", price: 120, unit: "kg", disPrice: 20, image: Burger},
+        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", disPrice: 45, image: Cotton},
+        {name: "Burger", category: "Food", price: 120, unit: "kg", disPrice: 20, image: Burger},
+        {name: "Blender", category: "Electronic", price: 1245, unit: "g", disPrice: 24, image: Blender},
+        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", disPrice: 45, image: Cotton},
+        {name: "Burger", category: "Food", price: 120, unit: "kg", disPrice: 20, image: Burger},
+        {name: "Blender", category: "Electronic", price: 1245, unit: "g", disPrice: 24, image: Blender},
+        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", disPrice: 45, image: Cotton},
+        {name: "Burger", category: "Food", price: 120, unit: "kg", disPrice: 20, image: Burger},
+        {name: "Cotton", category: "Pharmacy", price: 123, unit: "kg", disPrice: 45, image: Cotton}
     ];
 
     const selectOptions: any = {

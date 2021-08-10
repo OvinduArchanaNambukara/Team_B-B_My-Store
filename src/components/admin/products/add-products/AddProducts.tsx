@@ -2,16 +2,16 @@ import React, {useEffect, useState} from "react";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import ImageUploader from "./ImageUploader";
 import Select from "react-select";
-import {IProductDetails, ISelectorOption} from "../../../types/types";
-import {units} from "../../../constants/units";
+import {IProductDetails, ISelectorOption} from "../../../../types/types";
+import {units} from "../../../../constants/units";
 import {useForm, Controller} from "react-hook-form";
+import ProductPreview from "./ProductPreview";
 
 const AddProducts: React.FC = () => {
 
-  const [categoryValidated, setCategoryValidated] = useState<boolean>(false);
   const [categoryOptions, setCategoryOptions] = useState<ISelectorOption[]>([]);
-
-  const [productUnit, setProductUnit] = useState<string | null>(null);
+  const [productImage, setProductImage] = useState<any>(null);
+  const [formData, setFormData] = useState<IProductDetails | null>(null);
 
   const {register, handleSubmit, formState: {errors}, control} = useForm<IProductDetails>()
 
@@ -30,7 +30,7 @@ const AddProducts: React.FC = () => {
   let borderColor = '#ced4da';
   let focusBorderColor = '#66afe9';
   let focusBoxShadow = `0 0 0 .2rem rgba(0, 123, 255, 0.25)`;
-  if (categoryValidated) {
+  if (errors.category || errors.unit) {
     borderColor = '#dc3545';
     focusBorderColor = '#dc3545';
     focusBoxShadow = `0 0 0 .2rem rgba(220, 53, 69, .25)`;
@@ -44,24 +44,34 @@ const AddProducts: React.FC = () => {
     }),
   };
 
+  const handleFormSubmit = (data: any) => {
+    setFormData(data);
+    console.log(formData);
+  }
+
+
+  console.log(errors);
   return (
     <Container>
       <Row className="add-product py-4">
         <Col xs={12} md={4}>
-          {/*<Preview/>*/}
+          {/*<ImageUploader setImageFile={setProductImage}/>*/}
+          {formData && <ProductPreview name={formData.name} price={formData.price} unit={formData.unit}
+                           disPrice={formData.disPrice}/>}
         </Col>
         <Col xs={12} md={8}>
           <Form onSubmit={handleSubmit((data) => {
-            console.log(data)
-          })}
-                validated={false}>
+            handleFormSubmit(data);
+          })}>
             <Form.Group>
               <Form.Label>
                 Product Name
               </Form.Label>
-              <Form.Control type="text" size="sm" required {...register("name", {required: true})}
+              <Form.Control type="text" size="sm" {...register("name", {required: true})}
               />
-              <Form.Control.Feedback type="invalid">Please Enter Product Name</Form.Control.Feedback>
+              {errors.name && <small className="text-danger font-weight-bold">
+                Please Enter Product Name
+              </small>}
             </Form.Group>
             <Form.Group>
               <Form.Label>
@@ -70,10 +80,12 @@ const AddProducts: React.FC = () => {
               <Controller
                 control={control}
                 name="category"
+                rules={{required: true}}
                 render={({field: {onChange, value, ref}}) => (
                   <Select
                     inputRef={ref}
-                    className="category-select" classNamePrefix="select-control"
+                    className="category-select"
+                    classNamePrefix="select-control"
                     isSearchable
                     required
                     options={categoryOptions}
@@ -87,49 +99,59 @@ const AddProducts: React.FC = () => {
                   />
                 )}
               />
-              {categoryValidated && <small className="text-danger font-weight-bold">
+              {errors.category && <small className="text-danger font-weight-bold">
                 Please Select Product Category
               </small>}
             </Form.Group>
-            <Row>
-              <Col xs={9}>
-                <Form.Group>
+            <Form.Group>
+              <Row>
+                <Col xs={8}>
                   <Form.Label>
                     Product Price
                   </Form.Label>
-                  <Form.Control type="text" size="sm" required
-                                {...register("price", {required: true})}
+                  <Form.Control type="text" size="sm"
+                                {...register("price", {required: true, valueAsNumber: true})}
                   />
-                  <Form.Control.Feedback type="invalid">Please Enter Product Price</Form.Control.Feedback>
-                </Form.Group>
-              </Col>
-              <Col xs={3}>
-                <Form.Group>
+                  {errors.price && <small className="text-danger font-weight-bold">
+                    Please Enter Product Price
+                  </small>}
+                </Col>
+                <Col xs={4}>
                   <Form.Label>
                     per
                   </Form.Label>
-                  <Select className="category-select" classNamePrefix="select-control"
-                          isSearchable
-                          required
-                          options={units}
-                          placeholder={null}
-                          noOptionsMessage={() => ("No options here, Please Create a new Category")}
-                          styles={style}
-                          onChange={(option) => {
-                            if (option) {
-                              setProductUnit(option.value);
-                              setCategoryValidated(false);
-                            }
-                          }}
-                          value={units?.filter(option => option.value === productUnit)}
+                  <Controller
+                    control={control}
+                    name="unit"
+                    rules={{required: true}}
+                    render={({field: {onChange, value, ref}}) => (
+                      <Select className="unit-select"
+                              classNamePrefix="select-control"
+                              inputRef={ref}
+                              isSearchable
+                              required
+                              options={units}
+                              styles={style}
+                              onChange={(option) => {
+                                onChange(option?.value)
+                              }}
+                              value={units?.filter(option => option.value === value)}
+                      />)}
                   />
-                  {categoryValidated && <small className="text-danger font-weight-bold">
-                    Please Select Product Category
+                  {errors.unit && <small className="text-danger font-weight-bold">
+                    Please Select Unit
                   </small>}
-                </Form.Group>
-              </Col>
-            </Row>
-
+                </Col>
+              </Row>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>
+                Discount Price
+              </Form.Label>
+              <Form.Control type="text" size="sm"
+                            {...register("disPrice", {valueAsNumber: true})}
+              />
+            </Form.Group>
             <Button type="submit">Add Product</Button>
           </Form>
         </Col>
