@@ -12,42 +12,42 @@ const OrdersTable: React.FC = () => {
         {
             orderId: "60e8a04bea6ac033ab7b8573",
             total: 2464,
-            date: "Wed Sep 19 2018 19:11:09 GMT+0530 (India Standard Time)"
+            date: "Wed Sep 19 2018 19:11:09"
         },
         {
             orderId: "60e945cde0cb338632d57034",
             total: 2342,
-            date: "Tue Aug 04 2020 21:11:04 GMT+0530 (India Standard Time)"
+            date: "Tue Aug 04 2020 21:11:04"
         },
         {
             orderId: "60e8a04bea6ac033ab7b8573",
             total: 2464,
-            date: "Wed Sep 19 2018 19:11:09 GMT+0530 (India Standard Time)"
+            date: "Wed Sep 19 2018 19:11:09"
         },
         {
             orderId: "60e945cde0cb338632d57034",
             total: 2342,
-            date: "Tue Aug 04 2020 21:11:04 GMT+0530 (India Standard Time)"
+            date: "Tue Aug 04 2020 21:11:04"
         },
         {
             orderId: "60e8a04bea6ac033ab7b8573",
             total: 2464,
-            date: "Wed Sep 19 2018 19:11:09 GMT+0530 (India Standard Time)"
+            date: "Wed Sep 19 2018 19:11:09"
         },
         {
             orderId: "60e945cde0cb338632d57034",
             total: 2342,
-            date: "Tue Aug 04 2020 21:11:04 GMT+0530 (India Standard Time)"
+            date: "Tue Aug 04 2020 21:11:04"
         },
         {
             orderId: "60e8a04bea6ac033ab7b8573",
             total: 2464,
-            date: "Wed Sep 19 2018 19:11:09 GMT+0530 (India Standard Time)"
+            date: "Wed Sep 19 2018 19:11:09"
         },
         {
             orderId: "60e945cde0cb338632d57034",
             total: 2342,
-            date: "Tue Aug 04 2020 21:11:04 GMT+0530 (India Standard Time)"
+            date: "Tue Aug 04 2020 21:11:04"
         },
     ];
 
@@ -68,7 +68,7 @@ const OrdersTable: React.FC = () => {
         {
             dataField: 'date', text: 'Ordered At', filter: dateFilter({
                 defaultValue: {date: new Date(2019, 8, 5), comparator: Comparator.GT}
-            })
+            }), sort: true
         },
         {dataField: 'subTotal', text: 'SubTotal'},
         {dataField: 'action', text: 'Action'}
