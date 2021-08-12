@@ -40,7 +40,6 @@ const AddProducts: React.FC = () => {
     <Container>
       <Row className="add-product py-4">
         <Col xs={12} md={4}>
-          {/*<ImageUploader setImageFile={setProductImage}/>*/}
           <ProductPreview name={formData ? formData.name : 'Product Name'} price={formData ? formData.price : 0}
                           unit={formData ? formData.unit : ''}
                           disPrice={formData ? formData.disPrice : 0} setProductImage={() => setProductImage}/>
