@@ -1,28 +1,28 @@
 import React from "react";
-import {Button, Col, FormControl, Image, InputGroup, Row} from "react-bootstrap";
+import {Button, Col, FormControl, InputGroup, Row} from "react-bootstrap";
 import Name from "../../../productUX/template/Name";
 import CurrentPrice from "../../../productUX/template/CurrentPrice";
 import OldPrice from "../../../productUX/template/OldPrice";
-import Quantity from "../../../productUX/template/Quantity";
-import AddToCartBtn from "../../../productUX/template/AddToCartBtn";
+import ImageUpload from "./ImageUpload";
 
 type ProductPreviewProps = {
   name: string
   price: number
   unit: string
   disPrice: number
+  setProductImage: (file: any) => void
 }
 
 const ProductPreview: React.FC<ProductPreviewProps> = (props) => {
-  let {name, price, unit, disPrice} = props;
+  let {name, price, unit, disPrice, setProductImage} = props;
 
-    if (isNaN(disPrice)) {
-      disPrice = 0;
-    } else {
-      let newPrice = disPrice;
-      disPrice = price;
-      price = newPrice;
-    }
+  if (isNaN(disPrice)) {
+    disPrice = 0;
+  } else {
+    let newPrice = disPrice;
+    disPrice = price;
+    price = newPrice;
+  }
 
 
   return (
@@ -30,19 +30,20 @@ const ProductPreview: React.FC<ProductPreviewProps> = (props) => {
       <Row className='preview justify-content-center m-0 px-4'>
         <Col xs={12} className='product'>
           <Row>
-            <Col xs={12}>
-              <Image src={''} placeholder={name} loading='lazy' fluid={true}/>
+            <Col xs={12} className="m-0 p-0">
+              <ImageUpload setImageFile={() => setProductImage}/>
             </Col>
           </Row>
           <Name name={name ? name : 'Product Name'}/>
           <Row className='justify-content-center'>
             <CurrentPrice currentPrice={price ? price : 0}/>
-            {disPrice && <OldPrice oldPrice={disPrice}/>}
+            {(disPrice || !(disPrice === 0)) && <OldPrice oldPrice={disPrice}/>}
           </Row>
           <Row>
             <Col xs={12} md={6} className='pr-md-0 pl-md-3 px-4'>
               <InputGroup className="mb-3">
                 <FormControl
+                  className="quantity"
                   type="number"
                   min="1"
                   value={1}

@@ -1,3 +1,5 @@
+@import "../variables";
+
 .add-product {
   font-size: .9em;
   font-weight: 500;
@@ -8,4 +10,7 @@
     align-content: center;
   }
 
+  .add-button {
+    background-color: $logo-color;
+  }
 }

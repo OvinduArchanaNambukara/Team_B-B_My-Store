@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import ImageUploader from "./ImageUploader";
 import Select from "react-select";
 import {IProductDetails, ISelectorOption} from "../../../../types/types";
 import {units} from "../../../../constants/units";
-import {useForm, Controller} from "react-hook-form";
+import {Controller, useForm} from "react-hook-form";
 import ProductPreview from "./ProductPreview";
 
 const AddProducts: React.FC = () => {
@@ -26,23 +25,9 @@ const AddProducts: React.FC = () => {
     setCategoryOptions(catOptions);
   }, []);
 
-
-  let borderColor = '#ced4da';
-  let focusBorderColor = '#66afe9';
-  let focusBoxShadow = `0 0 0 .2rem rgba(0, 123, 255, 0.25)`;
-  if (errors.category || errors.unit) {
-    borderColor = '#dc3545';
-    focusBorderColor = '#dc3545';
-    focusBoxShadow = `0 0 0 .2rem rgba(220, 53, 69, .25)`;
-  }
-
-  const style = {
-    control: (provided: any, state: any) => ({
-      ...provided,
-      borderColor: state.selectProps.menuIsOpen ? focusBorderColor : borderColor,
-      boxShadow: state.selectProps.menuIsOpen ? focusBoxShadow : 'none',
-    }),
-  };
+  useEffect(() => {
+    console.log(productImage);
+  }, [productImage]);
 
   const handleFormSubmit = (data: any) => {
     setFormData(data);
@@ -56,10 +41,11 @@ const AddProducts: React.FC = () => {
       <Row className="add-product py-4">
         <Col xs={12} md={4}>
           {/*<ImageUploader setImageFile={setProductImage}/>*/}
-          {formData && <ProductPreview name={formData.name} price={formData.price} unit={formData.unit}
-                           disPrice={formData.disPrice}/>}
+          <ProductPreview name={formData ? formData.name : 'Product Name'} price={formData ? formData.price : 0}
+                          unit={formData ? formData.unit : ''}
+                          disPrice={formData ? formData.disPrice : 0} setProductImage={() => setProductImage}/>
         </Col>
-        <Col xs={12} md={8}>
+        <Col xs={12} md={8} className="pt-4">
           <Form onSubmit={handleSubmit((data) => {
             handleFormSubmit(data);
           })}>
@@ -91,7 +77,6 @@ const AddProducts: React.FC = () => {
                     options={categoryOptions}
                     placeholder={null}
                     noOptionsMessage={() => ("No options here, Please Create a new Category")}
-                    styles={style}
                     value={categoryOptions?.filter(option => option.value === value)}
                     onChange={(option) => {
                       onChange(option?.value)
@@ -131,7 +116,6 @@ const AddProducts: React.FC = () => {
                               isSearchable
                               required
                               options={units}
-                              styles={style}
                               onChange={(option) => {
                                 onChange(option?.value)
                               }}
@@ -152,7 +136,9 @@ const AddProducts: React.FC = () => {
                             {...register("disPrice", {valueAsNumber: true})}
               />
             </Form.Group>
-            <Button type="submit">Add Product</Button>
+            <Row className="justify-content-end p-3">
+              <Button type="submit" className="add-button">Add Product</Button>
+            </Row>
           </Form>
         </Col>
       </Row>
