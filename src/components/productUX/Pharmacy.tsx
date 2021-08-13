@@ -5,10 +5,9 @@ import {RootState} from "../../store/reducers/RootReducer";
 import Products from "./template/Products";
 import {useQuery} from "@apollo/client";
 import {GET_PHARMACY} from "../../graphql/query";
-import {addPharmacy} from "../../store/actions/ProductAction";
+import {processQueryData} from "../../store/actions/ProductAction";
 import Loading from "../loading/Loading";
 import Error from "../error/Error";
-import {processData} from "../../Func/Functions";
 
 const Pharmacy: React.FC = () => {
   const productList: IProducts[] = useSelector((state: RootState) => state.productReducer.pharmacy);
@@ -19,7 +18,7 @@ const Pharmacy: React.FC = () => {
     if (!data) {
       return
     }
-    processData(data.getPharmacyProducts).then(value => dispatch(addPharmacy(value)));
+    dispatch(processQueryData(data.getPharmacyProducts));
   }, [data]);
 
 
