@@ -5,10 +5,9 @@ import {RootState} from "../../store/reducers/RootReducer";
 import Products from "./template/Products";
 import {useQuery} from "@apollo/client";
 import {GET_FRUITS} from "../../graphql/query";
-import {addFruits} from "../../store/actions/ProductAction";
+import {processQueryData} from "../../store/actions/ProductAction";
 import Loading from "../loading/Loading";
 import Error from "../error/Error";
-import {processData} from "../../Func/Functions";
 
 const Fruits: React.FC = () => {
   const productList: IProducts[] = useSelector((state: RootState) => state.productReducer.fruits);
@@ -19,7 +18,7 @@ const Fruits: React.FC = () => {
     if (!data) {
       return
     }
-    processData(data.getFruitProducts).then(value => dispatch(addFruits(value)));
+    dispatch(processQueryData(data.getFruitProducts));
   }, [data]);
 
   return (

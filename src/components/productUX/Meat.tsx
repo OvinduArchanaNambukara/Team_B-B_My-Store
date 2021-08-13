@@ -5,10 +5,9 @@ import {RootState} from "../../store/reducers/RootReducer";
 import Products from "./template/Products";
 import {useQuery} from "@apollo/client";
 import {GET_MEAT} from "../../graphql/query";
-import {addMeat} from "../../store/actions/ProductAction";
+import {processQueryData} from "../../store/actions/ProductAction";
 import Loading from "../loading/Loading";
 import Error from "../error/Error";
-import {processData} from "../../Func/Functions";
 
 const Meat: React.FC = () => {
   const productList: IProducts[] = useSelector((state: RootState) => state.productReducer.meat);
@@ -19,7 +18,7 @@ const Meat: React.FC = () => {
     if (!data) {
       return
     }
-    processData(data.getMeatProducts).then(value => dispatch(addMeat(value)));
+    dispatch(processQueryData(data.getMeatProducts));
   }, [data]);
 
 
