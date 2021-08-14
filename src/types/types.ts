@@ -15,7 +15,7 @@ export interface categoryTypes {
   name: string
 }
 
-export interface optionTypes {
+export interface ISelectorOption {
   label: string
   value: string
 }
@@ -50,6 +50,30 @@ export interface ICheckoutProduct {
   product: Item
 }
 
+export interface IProductDetails {
+  name: string
+  category: string
+  price: number
+  unit: string
+  disPrice: number
+  image: string
+}
+
+export interface IOrderDetails {
+  orderId: string,
+  total: number,
+  date: string
+}
+
+export interface IAddProduct {
+  name: string
+  category: string
+  price: number
+  unit: string
+  hasDis: boolean
+  disPrice: number
+  image: string
+}
 export interface QueryItem {
   _id: string
   current_price: number

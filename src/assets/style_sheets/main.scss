@@ -17,4 +17,12 @@
 @import "partials/logIn";
 @import "partials/register";
 @import "partials/cash-on-delivery";
+@import "partials/image-upload";
 @import "partials/error";
+
+//admin
+@import "partials/admin/admin-nav";
+@import "partials/admin/add-product";
+@import "partials/admin/products-table";
+@import "partials/admin/orders-table";
+@import "partials/admin/product-preview";

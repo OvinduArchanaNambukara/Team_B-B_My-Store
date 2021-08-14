@@ -1,0 +1,20 @@
+@import "../variables";
+
+.add-product {
+  font-size: .9em;
+  font-weight: 500;
+
+  .select-control__control {
+    height: calc(1.5em + 0.5rem + 2px);
+    min-height: calc(1.5em + 0.5rem + 2px);
+    align-content: center;
+  }
+
+  .has-dis {
+    display: inline-block;
+  }
+
+  .add-button {
+    background-color: $logo-color;
+  }
+}

@@ -1,4 +1,4 @@
-import React from "react";
+    import React from "react";
 import BannerImage from "../../assets/images/welcomeImage/welcome_banner.webp";
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 

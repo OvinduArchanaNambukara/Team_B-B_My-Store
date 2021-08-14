@@ -11,6 +11,7 @@ const RegisterUX = lazy(() => import("../register/RegisterUX"));
 const ProductRoutes = lazy(() => import("../Routes/ProductRoutes"));
 const Checkout = lazy(() => import("../cart-table/Checkout"));
 const CashOnDelivery = lazy(() => import("../cash-on-delivery/CashOnDelivery"));
+const Admin = lazy(() => import("../admin/Admin"));
 
 const Routes: React.FC = () => {
   let location = useLocation();
@@ -34,33 +35,36 @@ const Routes: React.FC = () => {
   }, [location]);
 
   return (
-      <TransitionGroup>
-        <CSSTransition classNames='page' timeout={1000} key={key}>
-          <Suspense fallback={<Loading/>}>
-            <Switch location={location}>
-              <Route path='/login'>
-                <LogInUX/>
-              </Route>
-              <Route path='/register'>
-                <RegisterUX/>
-              </Route>
-              <Route path='/checkout'>
-                <Checkout/>
-                <CashOnDelivery/>
-              </Route>
-              <Route path='/home'>
-                <Welcome/>
-                <SearchBar/>
-                <CategoryArea/>
-                <ProductRoutes/>
-              </Route>
-              <Route path='/'>
-                <Redirect to='/home'/>
-              </Route>
-            </Switch>
-          </Suspense>
-        </CSSTransition>
-      </TransitionGroup>
+    <TransitionGroup>
+      <CSSTransition classNames='page' timeout={1000} key={key}>
+        <Suspense fallback={<Loading/>}>
+          <Switch location={location}>
+            <Route path='/admin'>
+              <Admin/>
+            </Route>
+            <Route path='/login'>
+              <LogInUX/>
+            </Route>
+            <Route path='/register'>
+              <RegisterUX/>
+            </Route>
+            <Route path='/checkout'>
+              <Checkout/>
+              <CashOnDelivery/>
+            </Route>
+            <Route path='/home'>
+              <Welcome/>
+              <SearchBar/>
+              <CategoryArea/>
+              <ProductRoutes/>
+            </Route>
+            <Route path='/'>
+              <Redirect to='/home'/>
+            </Route>
+          </Switch>
+        </Suspense>
+      </CSSTransition>
+    </TransitionGroup>
   );
 }
 
