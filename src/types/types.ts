@@ -31,6 +31,8 @@ export interface Item {
   image: string
   currentPrice: number
   oldPrice: number | null
+  qty: string
+  key: string
 }
 
 export interface IProduct {
@@ -72,3 +74,42 @@ export interface IAddProduct {
   disPrice: number
   image: string
 }
+export interface QueryItem {
+  _id: string
+  current_price: number
+  old_price: number
+  key: string
+  name: string
+  qty: string
+}
+
+export interface QueryItems {
+  category_name: string
+  products: QueryItem[]
+}
+
+export interface GetFoodProducts {
+  getFoodProducts: QueryItems
+}
+
+export interface GetElectronicProducts {
+  getElectronicProducts: QueryItems
+}
+
+export interface GetVegetableProducts {
+  getVegetableProducts: QueryItems
+}
+
+export interface GetMeatProducts {
+  getMeatProducts: QueryItems
+}
+
+export interface GetFruitProducts {
+  getFruitProducts: QueryItems
+}
+
+export interface GetPharmacyProducts {
+  getPharmacyProducts: QueryItems
+}
+
+

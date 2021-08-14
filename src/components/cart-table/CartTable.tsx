@@ -57,7 +57,7 @@ const CartTable: React.FC<CartTableProps> = (props) => {
   </span>
   );
 
-  const options:PaginationOptions = {
+  const options: PaginationOptions = {
     paginationSize: 4,
     pageStartIndex: 1,
     firstPageText: 'First',
