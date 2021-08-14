@@ -5,6 +5,7 @@ import {
   ADD_MEAT,
   ADD_PHARMACY,
   ADD_VEGETABLES,
+  IMAGE_PRESIGNED,
   MARK_ADD_TO_CART,
   MARK_REMOVE_FROM_CART
 } from "../constants/ProductConstants";
@@ -21,6 +22,14 @@ export interface MarkRemoveFromCart {
   type: typeof MARK_REMOVE_FROM_CART,
   payload: {
     id: string
+  }
+}
+
+export interface ImagePreSigned {
+  type: typeof IMAGE_PRESIGNED
+  payload: {
+    imageURL: string
+    productID: string
   }
 }
 
@@ -63,3 +72,4 @@ export type ProductActionTypes =
     | AddFruits
     | AddVegetable
     | AddPharmacy
+    | ImagePreSigned

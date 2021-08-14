@@ -7,6 +7,7 @@ import {
   ADD_MEAT,
   ADD_PHARMACY,
   ADD_VEGETABLES,
+  IMAGE_PRESIGNED,
   MARK_ADD_TO_CART,
   MARK_REMOVE_FROM_CART
 } from "../constants/ProductConstants";
@@ -40,7 +41,7 @@ export const ProductReducer = (state: storeTypes = initialState, action: Product
       const pharmacy = state.pharmacy.slice();
       const all: IProducts[] = [...vegetables, ...fruits, ...meat, ...electronic, ...pharmacy, ...food];
 
-      all.map((value) => {
+      all.map((value: IProducts) => {
         value.productDetails.map((product: IProduct) => {
           if (product.product.id === action.payload.id) {
             product.inCart = true;
@@ -63,7 +64,7 @@ export const ProductReducer = (state: storeTypes = initialState, action: Product
       const pharmacy = state.pharmacy.slice();
       const all: IProducts[] = [...vegetables, ...fruits, ...meat, ...electronic, ...pharmacy, ...food];
 
-      all.map((value) => {
+      all.map((value: IProducts) => {
         value.productDetails.map((product: IProduct) => {
           if (product.product.id === action.payload.id) {
             product.inCart = false;
@@ -72,6 +73,29 @@ export const ProductReducer = (state: storeTypes = initialState, action: Product
           return;
         });
       })
+      return {
+        ...state,
+        vegetables: vegetables, meat: meat, fruits: fruits, pharmacy: pharmacy, electronic: electronic, food: food
+      }
+    }
+    case IMAGE_PRESIGNED: {
+      const vegetables = state.vegetables.slice();
+      const fruits = state.fruits.slice();
+      const meat = state.meat.slice();
+      const food = state.food.slice();
+      const electronic = state.electronic.slice();
+      const pharmacy = state.pharmacy.slice();
+      const all: IProducts[] = [...vegetables, ...fruits, ...meat, ...electronic, ...pharmacy, ...food];
+
+      all.map((value: IProducts) => {
+        value.productDetails.map((product: IProduct) => {
+          if (product.product.id === action.payload.productID) {
+            product.product.image = action.payload.imageURL;
+            return;
+          }
+          return;
+        });
+      });
       return {
         ...state,
         vegetables: vegetables, meat: meat, fruits: fruits, pharmacy: pharmacy, electronic: electronic, food: food
