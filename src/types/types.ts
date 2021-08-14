@@ -32,6 +32,7 @@ export interface Item {
   currentPrice: number
   oldPrice: number | null
   qty: string
+  key: string
 }
 
 export interface IProduct {
@@ -54,7 +55,6 @@ export interface QueryItem {
   current_price: number
   old_price: number
   key: string
-  image: string
   name: string
   qty: string
 }

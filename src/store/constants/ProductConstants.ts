@@ -7,4 +7,4 @@ export const ADD_FRUITS = "ADD_FRUITS";
 export const ADD_PHARMACY = "ADD_PHARMACY=";
 export const ADD_FOOD = "ADD_FOOD";
 export const ADD_ELECTRONICS = "ADD_ELECTRONICS";
-
+export const IMAGE_PRESIGNED = "IMAGE_PRESIGNED";

@@ -9,7 +9,6 @@ export const GET_VEGETABLES = gql`
         current_price
         old_price
         name
-        image
         key
         qty
       }
@@ -26,7 +25,6 @@ export const GET_FRUITS = gql`
         current_price
         old_price
         name
-        image
         key
         qty
       }
@@ -43,7 +41,6 @@ export const GET_MEAT = gql`
         current_price
         old_price
         name
-        image
         key
         qty
       }
@@ -60,7 +57,6 @@ export const GET_PHARMACY = gql`
         current_price
         old_price
         name
-        image
         key
         qty
       }
@@ -77,7 +73,6 @@ export const GET_FOOD = gql`
         current_price
         old_price
         name
-        image
         key
         qty
       }
@@ -94,7 +89,6 @@ export const GET_ELECTRONICS = gql`
         current_price
         old_price
         name
-        image
         key
         qty
       }

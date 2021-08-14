@@ -4,6 +4,7 @@ import {
   AddFruits,
   AddMeat,
   AddPharmacy,
+  ImagePreSigned,
   MarkAddToCart,
   MarkRemoveFromCart
 } from "../types/ProductActionTypes";
@@ -14,12 +15,14 @@ import {
   ADD_MEAT,
   ADD_PHARMACY,
   ADD_VEGETABLES,
+  IMAGE_PRESIGNED,
   MARK_ADD_TO_CART,
   MARK_REMOVE_FROM_CART
 } from "../constants/ProductConstants";
 import {IProduct, IProducts, QueryItem, QueryItems} from "../../types/types";
 import {Dispatch} from "redux";
 import {store} from "../reducers/RootReducer";
+import axios from "axios";
 
 export const markAddToCart = (id: string): MarkAddToCart => {
   return {
@@ -38,24 +41,38 @@ export const markRemoveFromCart = (id: string, value: boolean): MarkRemoveFromCa
     }
   }
 }
+
+export const imagePreSinged = (imageURL: string, productID: string): ImagePreSigned => {
+  return {
+    type: IMAGE_PRESIGNED,
+    payload: {
+      imageURL: imageURL,
+      productID: productID
+    }
+  }
+}
+
 export const addVegetables = (inventory: IProducts[]) => {
   return {
     type: ADD_VEGETABLES,
     payload: inventory
   }
 }
+
 export const addFruits = (inventory: IProducts[]): AddFruits => {
   return {
     type: ADD_FRUITS,
     payload: inventory
   }
 }
+
 export const addPharmacy = (inventory: IProducts[]): AddPharmacy => {
   return {
     type: ADD_PHARMACY,
     payload: inventory
   }
 }
+
 export const addMeat = (inventory: IProducts[]): AddMeat => {
   return {
     type: ADD_MEAT,
@@ -100,21 +117,22 @@ const checkInTheCart = (product: QueryItem): boolean => {
  * @author Ovindu
  * @param data
  */
-export const processQueryData = (data: QueryItems) => async (dispatch: Dispatch) => {
+export const processQueryData = (data: QueryItems) => async (dispatch: Dispatch, getState: any) => {
   const items: IProduct[] = [];
-  for (const product of data.products) {
+  data.products.map((item, index) => {
     items.push({
-      inCart: checkInTheCart(product),
+      inCart: checkInTheCart(item),
       product: {
-        name: product.name,
-        oldPrice: product.old_price,
-        currentPrice: product.current_price,
-        id: product._id,
-        qty: product.qty,
-        image: product.key
+        name: item.name,
+        oldPrice: item.old_price,
+        currentPrice: item.current_price,
+        id: item._id,
+        qty: item.qty,
+        image: item.key,
+        key: item.key
       }
     });
-  }
+  })
   const productData: IProducts[] = [
     {
       category: data.category_name,
@@ -151,5 +169,9 @@ export const processQueryData = (data: QueryItems) => async (dispatch: Dispatch)
   }
 }
 
+export const getImagePreSignedUrls = (key: string, productID: string) => async (dispatch: Dispatch) => {
+  const res = await axios.post('/getImage', {key: key});
+  dispatch(imagePreSinged(res.data, productID));
+}
 
 
