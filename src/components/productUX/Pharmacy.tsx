@@ -20,8 +20,7 @@ const Pharmacy: React.FC = () => {
     }
     dispatch(processQueryData(data.getPharmacyProducts));
   }, [data]);
-
-
+  
   return (
       <React.Fragment>
         {error && <Error/>}

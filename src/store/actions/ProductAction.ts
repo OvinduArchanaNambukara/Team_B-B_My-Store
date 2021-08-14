@@ -21,7 +21,7 @@ import {
 } from "../constants/ProductConstants";
 import {IProduct, IProducts, QueryItem, QueryItems} from "../../types/types";
 import {Dispatch} from "redux";
-import {store} from "../reducers/RootReducer";
+import {RootState, store} from "../reducers/RootReducer";
 import axios from "axios";
 
 export const markAddToCart = (id: string): MarkAddToCart => {
@@ -113,13 +113,33 @@ const checkInTheCart = (product: QueryItem): boolean => {
 }
 
 /**
- * create a array from query data for that category and according to that category dispatch the function
+ * In here if current state of the image not equal to the key, do not change the current state.
  * @author Ovindu
- * @param data
+ * @param array
+ * @param id
+ * @param key
  */
-export const processQueryData = (data: QueryItems) => async (dispatch: Dispatch, getState: any) => {
+const checkImage = (array: IProduct[], id: string, key: string): string => {
+  for (const iProduct of array) {
+    if (iProduct.product.id === id) {
+      if (iProduct.product.image !== key) {
+        return iProduct.product.image;
+      }
+    }
+  }
+  return key;
+}
+
+/**
+ * In here create product list according the category from query data.
+ * @author Ovindu
+ * @param products
+ * @param categoryName
+ * @param currentState
+ */
+const createProductList = async (products: QueryItem[], categoryName: string, currentState: IProducts[]) => {
   const items: IProduct[] = [];
-  data.products.map((item, index) => {
+  products.map((item: QueryItem) => {
     items.push({
       inCart: checkInTheCart(item),
       product: {
@@ -128,39 +148,50 @@ export const processQueryData = (data: QueryItems) => async (dispatch: Dispatch,
         currentPrice: item.current_price,
         id: item._id,
         qty: item.qty,
-        image: item.key,
+        image: currentState[0] ? checkImage(currentState[0].productDetails, item._id, item.key) : item.key,
         key: item.key
       }
     });
   })
-  const productData: IProducts[] = [
-    {
-      category: data.category_name,
-      productDetails: items
-    }
-  ];
+  const productData: IProducts[] = [{category: categoryName, productDetails: items}];
+  return productData;
+}
+
+/**
+ * This function is a redux thunk function. In here according to category name pass parameters to,
+ * createProductList(params) and after receive that list to product data, dispatch the function.
+ * @author Ovindu
+ * @param data
+ */
+export const processQueryData = (data: QueryItems) => async (dispatch: Dispatch, getState: () => RootState) => {
   switch (data.category_name) {
     case "Fruits": {
+      const productData = await createProductList(data.products, data.category_name, getState().productReducer.fruits);
       dispatch(addFruits(productData));
       break;
     }
     case "Electronics": {
+      const productData = await createProductList(data.products, data.category_name, getState().productReducer.electronic);
       dispatch(addElectronic(productData));
       break;
     }
     case "Pharmacy": {
+      const productData = await createProductList(data.products, data.category_name, getState().productReducer.pharmacy);
       dispatch(addPharmacy(productData));
       break;
     }
     case "Vegetables": {
+      const productData = await createProductList(data.products, data.category_name, getState().productReducer.vegetables);
       dispatch(addVegetables(productData));
       break;
     }
     case "Food": {
+      const productData = await createProductList(data.products, data.category_name, getState().productReducer.food);
       dispatch(addFood(productData));
       break;
     }
     case "Meat": {
+      const productData = await createProductList(data.products, data.category_name, getState().productReducer.meat);
       dispatch(addMeat(productData));
       break;
     }
@@ -169,6 +200,12 @@ export const processQueryData = (data: QueryItems) => async (dispatch: Dispatch,
   }
 }
 
+/**
+ * This is a redux thunk function. In here request preSigned url from the backend. After receive it dispatch the function.
+ * @author Ovindu
+ * @param key
+ * @param productID
+ */
 export const getImagePreSignedUrls = (key: string, productID: string) => async (dispatch: Dispatch) => {
   const res = await axios.post('/getImage', {key: key});
   dispatch(imagePreSinged(res.data, productID));
