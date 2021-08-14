@@ -10,20 +10,22 @@ type ProductPreviewProps = {
   price: number
   unit: string
   disPrice: number
+  hasDis: boolean
   setProductImage: (file: any) => void
 }
 
 const ProductPreview: React.FC<ProductPreviewProps> = (props) => {
-  let {name, price, unit, disPrice, setProductImage} = props;
+  let {name, price, unit, hasDis ,disPrice, setProductImage} = props;
 
-  if (isNaN(disPrice)) {
-    disPrice = 0;
-  } else {
-    let newPrice = disPrice;
-    disPrice = price;
-    price = newPrice;
+  if (hasDis) {
+    if (isNaN(disPrice)) {
+      disPrice = 0;
+    } else {
+      let newPrice = disPrice;
+      disPrice = price;
+      price = newPrice;
+    }
   }
-
 
   return (
     <React.Fragment>
@@ -37,7 +39,7 @@ const ProductPreview: React.FC<ProductPreviewProps> = (props) => {
           <Name name={name ? name : 'Product Name'}/>
           <Row className='justify-content-center'>
             <CurrentPrice currentPrice={price ? price : 0}/>
-            {(disPrice || !(disPrice === 0)) && <OldPrice oldPrice={disPrice}/>}
+            {hasDis && (disPrice || !(disPrice === 0)) && <OldPrice oldPrice={disPrice}/>}
           </Row>
           <Row>
             <Col xs={12} md={6} className='pr-md-0 pl-md-3 px-4'>

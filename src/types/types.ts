@@ -62,3 +62,13 @@ export interface IOrderDetails {
   total: number,
   date: string
 }
+
+export interface IAddProduct {
+  name: string
+  category: string
+  price: number
+  unit: string
+  hasDis: boolean
+  disPrice: number
+  image: string
+}

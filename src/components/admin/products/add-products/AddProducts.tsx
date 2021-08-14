@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import Select from "react-select";
-import {IProductDetails, ISelectorOption} from "../../../../types/types";
+import {IAddProduct, ISelectorOption} from "../../../../types/types";
 import {units} from "../../../../constants/units";
 import {Controller, useForm} from "react-hook-form";
 import ProductPreview from "./ProductPreview";
@@ -10,9 +10,11 @@ const AddProducts: React.FC = () => {
 
   const [categoryOptions, setCategoryOptions] = useState<ISelectorOption[]>([]);
   const [productImage, setProductImage] = useState<any>(null);
-  const [formData, setFormData] = useState<IProductDetails | null>(null);
+  const [formData, setFormData] = useState<IAddProduct | null>(null);
 
-  const {register, handleSubmit, formState: {errors}, control} = useForm<IProductDetails>()
+  const {register, handleSubmit, watch, formState: {errors}, control} = useForm<IAddProduct>({
+    mode: 'onBlur'
+  });
 
   //fetch categories
   useEffect(() => {
@@ -31,18 +33,19 @@ const AddProducts: React.FC = () => {
 
   const handleFormSubmit = (data: any) => {
     setFormData(data);
-    console.log(formData);
   }
-
+  let hasDiscount = watch('hasDis');
 
   console.log(errors);
   return (
     <Container>
       <Row className="add-product py-4">
         <Col xs={12} md={4}>
-          <ProductPreview name={formData ? formData.name : 'Product Name'} price={formData ? formData.price : 0}
-                          unit={formData ? formData.unit : ''}
-                          disPrice={formData ? formData.disPrice : 0} setProductImage={() => setProductImage}/>
+          <ProductPreview name={watch('name') ? watch('name') : 'Product Name'}
+                          price={watch('price') ? watch('price') : 0}
+                          unit={watch('unit') ? watch('unit') : ''}
+                          hasDis={hasDiscount}
+                          disPrice={watch('disPrice') ? watch('disPrice') : 0} setProductImage={() => setProductImage}/>
         </Col>
         <Col xs={12} md={8} className="pt-4">
           <Form onSubmit={handleSubmit((data) => {
@@ -127,14 +130,17 @@ const AddProducts: React.FC = () => {
                 </Col>
               </Row>
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="has-dis">
+              <Form.Check type="checkbox" {...register('hasDis')}/><span>Add discount price</span>
+            </Form.Group>
+            {hasDiscount && <Form.Group>
               <Form.Label>
                 Discount Price
               </Form.Label>
               <Form.Control type="text" size="sm"
                             {...register("disPrice", {valueAsNumber: true})}
               />
-            </Form.Group>
+            </Form.Group>}
             <Row className="justify-content-end p-3">
               <Button type="submit" className="add-button">Add Product</Button>
             </Row>
