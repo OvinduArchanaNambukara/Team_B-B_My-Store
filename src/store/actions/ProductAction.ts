@@ -207,7 +207,7 @@ export const processQueryData = (data: QueryItems) => async (dispatch: Dispatch,
  * @param productID
  */
 export const getImagePreSignedUrls = (key: string, productID: string) => async (dispatch: Dispatch) => {
-  const res = await axios.post('/getImage', {key: key});
+  const res = await axios.post('https://api.bitsandbytes.me/getImage', {key: key});
   dispatch(imagePreSinged(res.data, productID));
 }
 

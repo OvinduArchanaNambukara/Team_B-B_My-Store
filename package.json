@@ -2,7 +2,6 @@
   "name": "my-store",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://api.bitsandbytes.me",
   "dependencies": {
     "@apollo/client": "^3.4.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
